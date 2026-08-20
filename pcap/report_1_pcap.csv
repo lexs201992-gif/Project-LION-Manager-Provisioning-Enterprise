@@ -1,0 +1,5 @@
+IPProto,SrcIP,SrcPort,DstIp,DstPort,UID,App,PackageName,Proto,Status,Info,BytesSent,BytesRcvd,PktsSent,PktsRcvd,FirstSeen,LastSeen
+6,10.215.173.1,41216,172.217.119.4,443,10204,Enterprise Adapter Service,com.motorola.enterprise.adapter.service,HTTPS,Closed,firebaseinstallations.googleapis.com,2117,5076,10,10,2026-08-19T23:02:44.489-05:00,2026-08-19T23:03:01.303-05:00
+17,10.215.173.1,36135,10.215.173.2,53,10204,Enterprise Adapter Service,com.motorola.enterprise.adapter.service,DNS,Closed,notification.sandclowd.com,72,154,1,1,2026-08-19T23:02:45.516-05:00,2026-08-19T23:02:45.598-05:00
+17,10.215.173.1,56125,10.215.173.2,53,10204,Enterprise Adapter Service,com.motorola.enterprise.adapter.service,DNS,Closed,notification.sandclowd.com,72,104,1,1,2026-08-19T23:02:45.523-05:00,2026-08-19T23:02:45.858-05:00
+6,10.215.173.1,52418,50.16.132.250,443,10204,Enterprise Adapter Service,com.motorola.enterprise.adapter.service,TLS,Closed,notification.sandclowd.com,3054,6059,17,17,2026-08-19T23:02:45.887-05:00,2026-08-19T23:03:01.307-05:00
