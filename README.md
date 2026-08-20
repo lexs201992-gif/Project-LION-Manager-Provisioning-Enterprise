@@ -105,6 +105,15 @@ Recommendation: CISA, India's CERT-In, and the MeitY should conduct an immediate
 Conclusion
 The evidence presented in this advisory demonstrates that Longcheer's network management architecture, while historically used for carrier lock/unlock, has been weaponized into a persistent, multi-layered backdoor. The recent Dixon-Longcheer Joint Venture represents a critical escalation, as it brings this compromised ODM pipeline into India's strategic manufacturing sector. Immediate action is required to audit the JV's production line and mitigate the risk to global brands assembled by Longcheer. 
 
+## Chain of Custody & Legal Compliance
+
+*   **Dispositivo:** Motorola Moto G04s (XT2421-7) / Board `lion` / Spreadtrum T606 
+*   **Propiedad:** Alexis Michel De La Cruz Correa
+*   **Adquisición:** Compra legal a Telcel México
+*   **Factura:** radiomovil-dipsa-s.a.-de-c.v.
+*   **Registro IFT:** Folio `510100018869585201` (25-06-26)
+*   **Declaración:** El dispositivo fue adquirido a través de canales legítimos y está registrado ante la autoridad reguladora mexicana. Todo el análisis se realizó en un entorno de laboratorio controlado, sin acceso a redes externas no autorizadas.
+
 ## Legal & Disclosure
 This research was conducted in a controlled laboratory environment with a fully compromised device. All findings are based on static and dynamic analysis of the firmware and network traffic.
 *   **Legal Disclosure** legal/INVESTIGATION_DECLARATION.md (https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/main/legal/INVESTIGATION_DECLARATION.md) 
