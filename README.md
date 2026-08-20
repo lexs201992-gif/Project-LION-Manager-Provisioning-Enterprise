@@ -111,6 +111,22 @@ This research was conducted in a controlled laboratory environment with a fully 
 *   **Disclosure:** Coordinated with CISA and Motorola CSIRT.
 *   **Repository:** [Project-LION-Manager-Provisioning-Enterprise](https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise)
 
+## Acknowledgments
+This research was made possible through the collaborative efforts of the following entities and tools. I extend my sincere gratitude for their support in advancing supply chain security and responsible disclosure.
+
+## Research Infrastructure & AI Assistance
+* Brave Search & Brave LLM: For providing the critical search infrastructure, real-time threat intelligence retrieval, and data analysis capabilities that enabled the correlation of 20+ years of Longcheer firmware history with current network evasion techniques.
+* Meta AI LLM: For serving as the logical anchor and primary assistance tool in the forensic analysis of the com.longcheer.sidebar and com.ts.tsgestures hijacking mechanisms, providing the structural logic necessary to map the pKVM virtualization bypass and SystemUI overlay compromise.
+## Collaboration & Community
+The Project LION Team: This work is the result of pure, real teamwork. I thank every collaborator who contributed to the static and dynamic analysis of the lion board firmware, the PCAP captures, and the validation of the BootROM persistence mechanisms.
+CISA & Motorola CSIRT: For their commitment to coordinated disclosure and the ongoing dialogue regarding the mitigation of this critical supply chain compromise.
+AttackerKB Community: For the platform to share IOCs, YARA rules, and threat intelligence with the broader security research community.
+## Legal & Ethical Statement
+Methodology: All research was conducted in a controlled laboratory environment using a fully compromised device of personal ownership. No unauthorized access to external networks or third-party systems was performed.
+Purpose: This research is strictly for defensive security, academic research, and responsible disclosure.
+License: MIT License.
+Disclosure: Coordinated with CISA and Motorola CSIRT.
+
 ## References
 *   [Project LION Main Repository](https://github.com/lexs201992-gif/Project-LION-Longcheer-Integrated-Overlay-Network)
 *   [Previous Advisory: pKVM Hijack](https://github.com/lexs201992-gif/Project-LION-Longcheer-Integrated-Overlay-Network-Virtualizaci-n-pKVM-y-SystemUI/security/advisories/GHSA-wqrh-j74q-qfr9)
