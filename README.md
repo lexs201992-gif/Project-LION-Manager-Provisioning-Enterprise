@@ -107,6 +107,7 @@ The evidence presented in this advisory demonstrates that Longcheer's network ma
 
 ## Legal & Disclosure
 This research was conducted in a controlled laboratory environment with a fully compromised device. All findings are based on static and dynamic analysis of the firmware and network traffic.
+*   **Legal Disclosure legal/INVESTIGATION_DECLARATION.md
 *   **License:** MIT
 *   **Disclosure:** Coordinated with CISA and Motorola CSIRT.
 *   **Repository:** [Project-LION-Manager-Provisioning-Enterprise](https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise)
