@@ -5,6 +5,9 @@
 **Author:** Alexis Michel De La Cruz Correa (lexs201992-gif)
 **Status:** Unpatched / No Vendor Fix
 
+# Laboratory Device Technical Sheet
+[https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/main/DEVICE_TECHNICAL_SHEET.md]
+
 ## Executive Summary
 
 This repository documents the discovery of a **critical supply chain compromise** in Motorola devices (Board `lion`, Unisoc T606/T616, ODM Longcheer). The attack weaponizes the legitimate `com.motorola.enterprise.adapter.service` (UID 10204) as the **primary payload injector**, leveraging it to establish persistent Command and Control (C2) channels and deploy spyware capabilities.
