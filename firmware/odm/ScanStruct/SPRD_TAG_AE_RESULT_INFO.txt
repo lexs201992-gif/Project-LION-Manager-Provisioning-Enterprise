@@ -1,0 +1,293 @@
+ae_callback_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_callback_param {
+	cmr_s32 cur_bv;
+	cmr_u32 cur_lum;
+	cmr_u32 cur_index;   //no ae
+	float cur_ev;
+	float ev_list[10];
+	cmr_u32 frm_id;   //frame_id
+
+	cmr_u32 face_stable;
+	cmr_u32 face_enable;
+	cmr_u32 face_num;
+	cmr_u32 face_lum;
+	cmr_u32 target_lum;
+	cmr_u32 base_target_lum;  //noface
+
+	cmr_u32 total_gain;   //cur_again
+	cmr_u32 sensor_gain;
+	cmr_u32 isp_gain;
+	cmr_u32 iso;
+	cmr_u32 cur_dgain;    //only 2.x
+	float exposure_time;  // exp time / AEC_LINETIME_PRECESION
+	cmr_u32 exp_line;   //cur_exp_line
+	cmr_u64 exp_time;
+	cmr_u32 dmy_line;
+	cmr_u32 line_time;
+	cmr_u64 cur_effect_exp_time;
+	cmr_u32 cur_effect_exp_line;
+	cmr_u32 cur_effect_dmy_line;
+	cmr_u32 cur_effect_again;
+	cmr_u32 cur_effect_dgain;  // no ae
+	cmr_u32 cur_effect_sensitivity;
+	float cur_effect_fps;
+	float fps;
+
+	cmr_u32 ae_stable;
+	cmr_u32 near_stable;
+	cmr_u8 flash_fired;  // AE_GET_FLASH_EB && AE_CB_LED_NOTIFY && AE_CB_FLASH_FIRED
+	cmr_s32 request_id;
+
+	cmr_u8 start_cap_flag;
+	cmr_u8 ev_calc_done_flag;
+	cmr_u8 to_hal_end_cap_flag;
+	cmr_u8 ae_update_flag;
+	cmr_u8 long_cap_frame_flag;
+	cmr_u32 sof_id;
+	cmr_u32 effect_sof_id;
+	cmr_u32 frame_line;
+	cmr_u32 target_lum_ori;
+	cmr_u32 flag4idx;
+	cmr_u16 abl_weight;
+
+	void *debug_info;
+	cmr_u32 debug_len;
+	cmr_u8 cap_done;
+	cmr_u32 lcg_gain;
+	cmr_u32 evd;
+	cmr_u32 hm_evd;
+	cmr_u8 lowlight_flag; //AE_GET_LOWLIGHT_FLAG_BY_BV
+	cmr_u8 sync_stable; //AE_CB_SYNC_STABLE
+	cmr_u8 nzl_cap_flag; //AE_CB_STAB_NOTIFY
+	cmr_u8 mainflash_enable; //AE_GET_MAINFLASH_EN
+	cmr_u8 flicker_switch_flag; //AE_GET_FLICKER_SWITCH_FLAG
+	cmr_u32 flash_skip_frame_num; //AE_GET_FLASH_SKIP_FRAME_NUM
+	cmr_u8 flicker_mode; //AE_GET_FLICKER_MODE
+	cmr_u32 sensor_role;
+	cmr_u32 flash_status;
+	cmr_u32 flash_mode;
+	cmr_u32 flash_status_mw;
+	cmr_u8 only_update_ispgain;
+	cmr_u8 lock_ae;
+	cmr_u16 final_face_backlight;
+	cmr_s8 face_backlit_flag;
+
+	struct ae_monitor_info ae_monit_inf; //AE_GET_MONITOR_INFO
+	struct ae_get_ev ae_ev; //AE_GET_CALC_RESULTS
+	struct ae_flash_param flash_param;  //AE_GET_CALC_RESULTS,
+	struct ae_fps_range fps_range; //AE_GET_DC_DV_FPS_RANGE
+	struct ae_effect_params ae_eft_param; //AE_GET_EFFECT_MECHANISM
+	struct ae_adjust_param cb_ev_group_param; //AE_CB_EV_GROUP_SET_NOTIFY
+	struct ae_done_cb_infor ae_done_cb; //AE_CB_SETTING_FINISH
+	struct ae_awb_gain flash_awb_gain; //AE_GET_FLASH_WB_GAIN
+	struct sensor_multi_ae_info sensor_info[3];
+	struct ae_rgb_gain_info isp_gain_info;
+	struct ae_leds_ctrl leds_ctrl;  //AE_GET_LEDS_CTRL
+	struct flash_ctrl_cb flash_charge[2]; //ISP_AE_SET_FLASH_CHARGE
+	struct flash_ctrl_cb flash_ctrl; //ISP_AE_FLASH_CTRL
+	struct flash_cali_result flash_calibration_result;// AE_CB_FLASH_CALIBRATION
+	struct flash_cali_stat flash_calibration_stat;
+	struct ae_result_offline offline_aeinfo;
+
+	cmr_u8 *ystat_ptr;
+	cmr_u32 ystat_w;
+	cmr_u32 ystat_h;
+};
+
+ae_monitor_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_monitor_info {
+	cmr_u32 shift;
+	cmr_u32 work_mode;/*single or continue mode*/
+	cmr_u32 skip_num;/*skip num: default value is 0*/
+	struct ae_ctrl_size win_size;
+	struct ae_ctrl_size win_num;
+	struct ae_ctrl_trim trim;
+	struct ae_ctrl_rgb_l high_region_thrd;/*it will come from ae algorithm tuning parameter, not from AEM param*/
+	struct ae_ctrl_rgb_l low_region_thrd;/*it will come from ae algorithm tuning parameter, not from AEM param*/
+};
+
+ae_ctrl_size path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_ctrl_size {
+	cmr_u32 w;
+	cmr_u32 h;
+};
+
+ae_ctrl_trim path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_ctrl_trim {
+	cmr_u32 x;
+	cmr_u32 y;
+	cmr_u32 w;
+	cmr_u32 h;
+};
+
+ae_ctrl_rgb_l path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_ctrl_rgb_l {
+	cmr_u32 r;
+	cmr_u32 g;
+	cmr_u32 b;
+};
+
+ae_get_ev path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_get_ev {
+	enum ae_level ev_index;
+	cmr_s32 ev_tab[16];
+};
+
+ae_flash_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_flash_param {
+	float captureFlashEnvRatio;
+	float captureFlash1ofALLRatio;
+};
+
+ae_fps_range path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_fps_range {
+	cmr_u32 dc_fps_min;
+	cmr_u32 dc_fps_max;
+	cmr_u32 dv_fps_min;
+	cmr_u32 dv_fps_max;
+};
+
+ae_effect_params path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_effect_params {
+	cmr_u8 exp;
+	cmr_u8 isp_gain;
+	cmr_u8 sensor_gain;
+};
+
+ae_adjust_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_adjust_param {
+	cmr_u32 exp_time;
+	cmr_u32 exp_line;
+	cmr_u32 iso;
+	cmr_u32 pre_iso;
+	cmr_u64 pre_exp;
+	cmr_u32 sensor_gain;
+	cmr_u32 isp_gain;
+	cmr_u32 total_gain;
+	cmr_s16 cur_lum;
+	float ev;
+	cmr_s32 bv;
+	cmr_u32 abl_weight;
+};
+
+ae_done_cb_infor path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_done_cb_infor {
+	enum ae_cap_cb_flag cap_cb_flag;
+	enum ae_cap_cb_frame_status cap_frame_status;
+};
+
+ae_awb_gain path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_awb_gain {
+	cmr_u32 r;
+	cmr_u32 g;
+	cmr_u32 b;
+};
+
+sensor_multi_ae_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_sensor_info.h
+struct sensor_multi_ae_info {
+    cmr_int camera_id;
+    cmr_handle handle;
+    cmr_u32 count;
+    cmr_u32 ignore;
+    cmr_u32 gain;
+    cmr_u32 sensor_role;
+    struct sensor_ex_exposure exp;
+    cmr_u32 frame_id;
+    int64_t end_time;
+};
+
+sensor_ex_exposure path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_sensor_info.h
+struct sensor_ex_exposure {
+    cmr_u32 exposure;   //exp_line
+    cmr_u32 dummy;
+    cmr_u32 size_index;
+    cmr_u64 exp_time;
+    cmr_u32 long_exp_flag;
+};
+
+ae_rgb_gain_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_rgb_gain_info {
+	cmr_u32 bypass;
+	cmr_u32 global_gain;
+	cmr_u32 r_gain;
+	cmr_u32 g_gain;
+	cmr_u32 b_gain;
+	cmr_u32 frame_id;
+};
+
+ae_leds_ctrl path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_leds_ctrl {
+	cmr_u32 led0_ctrl;
+	cmr_u32 led1_ctrl;
+};
+
+flash_ctrl_cb path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct flash_ctrl_cb {
+	cmr_u8 flag;
+	struct ae_flash_cfg cfg_ptr;
+	struct ae_flash_element element_ptr;
+};
+
+ae_flash_cfg path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_flash_cfg {
+	cmr_u32 type;			// enum isp_flash_type
+	cmr_u32 led_idx;		//enum isp_flash_led
+	cmr_u32 led0_enable;
+	cmr_u32 led1_enable;
+	cmr_u32 multiColorLcdEn;
+};
+
+ae_flash_element path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_flash_element {
+	cmr_u16 index;
+	cmr_u16 val;
+	cmr_u16 brightness;
+	cmr_u16 color_temp;
+	cmr_u32 bg_color;
+};
+
+flash_cali_result path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct flash_cali_result {
+	void *data;
+	cmr_u32 size;
+};
+
+flash_cali_stat path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct flash_cali_stat {
+	cmr_u8 flag;
+	cmr_u8 enable;
+	cmr_u8 result;
+	char error_info[128];
+};
+
+ae_result_offline path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_result_offline {
+	cmr_s32 cur_bv;
+	cmr_u32 effect_total_gain;
+	cmr_u32 effect_sensor_gain;
+	cmr_u32 effect_isp_gain;
+	cmr_u64 effect_exp_time;
+	cmr_u32 effect_exp_line;
+	cmr_u32 cur_frame_id;
+	cmr_u32 cur_evd;
+	cmr_u32 cur_iso;
+	cmr_u32 cur_ev_index;
+	cmr_u16 cur_abl_weight;
+	cmr_u32 cur_result_total_gain;
+	cmr_u32 cur_result_exp_line;
+	cmr_u32 cur_isp_gain;
+	cmr_u32 cur_sensor_gain;
+	cmr_u64 cur_result_exp_time;
+	cmr_u8 metering_mode;
+	cmr_u8 scene_mode;
+	cmr_u32 face_lum;
+	cmr_u32 face_stable;
+	float captureFlashEnvRatio;
+	float captureFlash1ofALLRatio;
+	cmr_u32 face_num;
+	cmr_u32 lcg_gain;
+	cmr_u32 ae_stable;
+	cmr_u32 hm_evd;
+	cmr_u16 final_face_backlight;
+};
+
