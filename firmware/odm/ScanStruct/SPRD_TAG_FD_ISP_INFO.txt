@@ -1,0 +1,53 @@
+isp_face_area path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/swa_param.h
+struct isp_face_area {
+	cmr_u16 type;
+	cmr_u16 face_num;
+	cmr_u16 frame_width;
+	cmr_u16 frame_height;
+	struct isp_face_info face_info[10];
+	cmr_u32 frame_id;
+	cmr_s64 timestamp;
+	struct fashape_vec fafacealign_out; /* lwp not use, need delete */
+	void *faceanalyze_out;              /* lwp not use, need delete */
+	void *faceattribute_out;            /* lwp not use, need delete */
+};
+
+isp_face_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/swa_param.h
+struct isp_face_info {
+	cmr_s32 sx;
+	cmr_s32 sy;
+	cmr_s32 ex;
+	cmr_s32 ey;
+	cmr_u32 brightness;      /* 3A do not need */
+	cmr_s32 pose;            /* yaw_angle */
+	cmr_s32 angle;           /* roll_angle */
+	cmr_s32 yaw_angle;       /* Out-of-plane rotation angle (Yaw);In [-90, +90] degrees;   */
+	cmr_s32 roll_angle;      /* In-plane rotation angle (Roll); In (-180, +180] degrees;   */
+
+fashape_vec path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/swa_param.h
+struct fashape_vec {
+	FASHAPE_OUT faceShape[FASHAPE_MAXFACENUM];
+	int faceNum;
+};
+
+FASHAPE_OUT path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/swa_param.h
+typedef struct
+{
+	int data[FA_SHAPE_POINTNUM*2];   /* Coordinates of landmarks [x0,y0,x1,y1, ..., xn,yn]   */
+	int score;                       /* Confidence score of face shape                       */
+	int yawAngle;
+	FA_ATTRIBUTE_OUT attribute;
+	int faceID;
+} FASHAPE_OUT;
+
+FA_ATTRIBUTE_OUT path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/swa_param.h
+typedef struct
+{
+	int mouthStatus;                                                /*0: no occlusion, 1: mouth with mask; 2: other occlusion*/
+	int mouthScores[FACEANALYZE_ATTR_MOUTH_LABELNUM];               /*confidence score of each label,[0,100]*/
+	int eyeGlassesStatus;                                           /*0: no glasses, 1: normal glasses; 2: sunglasses*/
+	int eyeGlassesScores[FACEANALYZE_ATTR_EYE_GLASSES_LABELNUM];    /*confidence score of each label,[0,100]*/
+	int faceOccStatus;                                              /*0: no occlusion, 1: occlusion*/
+	int faceOccScores[FACEANALYZE_ATTR_FACE_OCC_LABELNUM];          /*confidence score of each label,[0,100]*/
+}FA_ATTRIBUTE_OUT;
+
