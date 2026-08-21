@@ -1,0 +1,51 @@
+CONTROL_Tag path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../iss/ISSFrame/ISSFrame.h
+    typedef struct {
+        uint8_t capture_intent;
+        uint8_t available_video_stab_modes[1];
+        int32_t max_regions[3];
+        uint8_t available_effects[9];
+        uint8_t available_scene_modes[18];
+        uint8_t mode;
+        uint8_t effect_mode;
+        uint8_t scene_mode;
+        uint8_t video_stabilization_mode;
+        uint8_t antibanding_mode;
+
+        uint8_t af_trigger;
+        int32_t af_trigger_Id;
+        uint8_t af_state;
+        uint8_t af_mode;
+        int32_t af_regions[5];
+        int32_t ot_frame_id;
+        uint8_t af_available_modes[6];
+        int32_t af_roi[5];
+
+        int32_t ae_available_fps_ranges[FPS_RANGE_COUNT];
+        int32_t ae_compensation_range[2];
+        uint8_t ae_available_abtibanding_modes[4];
+        uint8_t ae_available_modes[5];
+        int32_t ae_target_fps_range[2];
+        int32_t ae_regions[5];
+
+        uint8_t am_available_modes[4];
+        camera_metadata_rational ae_compensation_step;
+        int32_t ae_exposure_compensation;
+        uint8_t ae_lock;
+        uint8_t ae_lock_ev;
+        uint8_t ae_mode;
+        uint8_t ae_abtibanding_mode;
+        uint8_t ae_precap_trigger;
+        uint8_t ae_manual_trigger;
+        uint8_t ae_state;
+        int32_t ae_precapture_id;
+        uint8_t ae_comp_effect_frames_cnt;
+
+        uint8_t awb_available_modes[9];
+        uint8_t awb_lock;
+        uint8_t awb_mode;
+        uint8_t awb_state;
+        int32_t awb_regions[5];
+
+        uint8_t enable_zsl;
+    } CONTROL_Tag;
+
