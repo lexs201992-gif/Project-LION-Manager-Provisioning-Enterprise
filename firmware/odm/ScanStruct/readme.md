@@ -13,6 +13,62 @@ All other firmware files have this path **stripped** during the build process. T
 
 This is the **black box** that confirms the firmware was compiled on Longcheer's Jenkins infrastructure for **mass production**, not a prototype or custom build.   
 
+# ScanStruct – ISP Black Box & Longcheer Build Pipeline
+
+**Path:** `/system/vendor/odm/etc/ScanStruct/`
+**Files:** 17
+**Timestamp:** Dec 31, 2008 (artificial)
+**Jenkins Path:** `/data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/`
+
+## The "Black Box" of the Longcheer Build Pipeline
+
+**Only the `ScanStruct/` files** retain the Jenkins build path. All other firmware files have this path **stripped** during the build process. This makes `ScanStruct/` the **sole forensic artifact** that reveals:
+
+- **Build Job:** `Build-LXF_M173_U_MP_SMR_user`
+- **Board Codename:** `LXF_M173`
+- **Production Stage:** `MP` (Mass Production)
+- **Build Type:** `user` (release, not debug)
+- **Module:** Unisoc ISP (`libcamera/iss/`)
+
+This is the **black box** that confirms the firmware was compiled on Longcheer's Jenkins infrastructure for **mass production**, not a prototype or custom build.
+
+## File Index
+
+| File | Size | Function | MD5 | SHA-1 | SHA-256 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `SPRD_TAG_AE_RESULT_INFO.txt` | 9.62 kB | Auto Exposure + Face Detection | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_AWB_CALC_INFO.txt` | 1.18 kB | Auto White Balance + **Jenkins Path** | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_CAP_AE_PARAMS.txt` | 623 B | Capture AE Parameters | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_CONTROL_INFO.txt` | 1.64 kB | Camera Control (AF/AE/AWB regions) | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_FD_ISP_INFO.txt` | 2.60 kB | **Face Detection in ISP** | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_GAMMA_TABLE_V1.txt` | 385 B | Gamma Correction (v1) | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_GAMMA_TABLE.txt` | 327 B | Gamma Correction | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_ISCENE_INFO.txt` | 10.31 kB | **AI Scene Detection** | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_JPEG_POST_PROC.txt` | 0.96 kB | JPEG Post-Processing | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_LSC_GAIN_TABLE.txt` | 412 B | Lens Shading Correction (Gain) | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_LSC_RESULT_INFO.txt` | 321 B | Lens Shading Correction (Result) | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_LSC_RESULT_TABLE_INFO.txt` | 321 B | Lens Shading Correction (Table) | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_LSC4_RESULT_INFO.txt` | 1.40 kB | Lens Shading Correction v4 | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_PDAF_TYPE2_RAW_INFO.txt` | 760 B | Phase Detection Auto Focus | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_SCENE_DETECT_OUT.txt` | 6.03 kB | **Scene Classification Output** | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_SPRDDEF_INFO.txt` | 4.18 kB | **SPRD_DEF_Tag (Biometric/Behavioral)** | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+| `SPRD_TAG_statis_param.txt` | 228 B | Statistics Parameters | `[PENDING]` | `[PENDING]` | `[PENDING]` |
+
+## Critical Files
+
+| File | Why It Matters |
+| :--- | :--- |
+| `SPRD_TAG_SPRDDEF_INFO.txt` | **Most critical:** Contains `gender_race_age_enable`, `face_angle_info[20]`, `gesture_detect`, `motion_detect`, `smile_capture` – **biometric & behavioral surveillance** |
+| `SPRD_TAG_AWB_CALC_INFO.txt` | **Jenkins Path** – Build pipeline black box |
+| `SPRD_TAG_FD_ISP_INFO.txt` | **Face detection** at ISP level |
+| `SPRD_TAG_ISCENE_INFO.txt` | **AI scene classification** |
+| `SPRD_TAG_SCENE_DETECT_OUT.txt` | **Scene detection output** – triggers for capture |
+
+## Sub-directories
+
+- [`XDR_Fusion/`](./XDR_Fusion/) – XDR multi-frame fusion & face tracking structs
+
+
 
 # XDR Fusion & Face Tracking Architecture
 
