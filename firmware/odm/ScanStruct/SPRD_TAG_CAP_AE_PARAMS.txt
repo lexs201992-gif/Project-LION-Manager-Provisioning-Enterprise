@@ -1,0 +1,20 @@
+ae_aux_param_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../oem2v7/inc/cmr_type.h
+struct ae_aux_param_t {
+    int cnt;
+    struct ae_aux_param param[EV_GROUP_MAX];
+};
+
+ae_aux_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../oem2v7/inc/cmr_type.h
+struct ae_aux_param {
+    cmr_u32 exp_time;
+    cmr_u32 exp_line;
+    cmr_u32 iso;
+    cmr_u32 pre_iso;
+    cmr_u32 pre_exp;
+    cmr_u32 sensor_gain;
+    cmr_u32 isp_gain;
+    cmr_u32 total_gain;
+    cmr_s16 cur_lum;
+    float ev;
+};
+
