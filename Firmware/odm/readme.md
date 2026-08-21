@@ -48,5 +48,19 @@ The second half of `wcn.rc` reveals a **region-specific activation system**:
 | `/dev/goodix_fp` (0666) | **World-readable/writable** – allows any process to access the fingerprint sensor node |
 
 **Conclusion:** The fingerprint sensor is managed in the **TEE** with **insecure permissions (0666)**, enabling biometric data exfiltration or spoofing by compromised components (`co.sitic.pp`, `com.motorola.enterprise.adapter.service`).   
+
+### `sw_config.xml` – TEE Configuration & Biometric Exfiltration
+
+| Element | Value | Forensic Significance |
+| :--- | :--- | :--- |
+| `Environment` | `TEE` | Configuration operates in **Secure World** |
+| `platform` | `trusty-android9` | Confirms **Trusted OS** (TrustZone ARM) |
+| `data_dumping` | `false` | **Fingerprint image export** option in production firmware – **anomalous** |
+| `img_invciper_data` | `false` | **Raw sensor data export** – **anomalous** |
+| `direct` | `RLUD` | **Inverted navigation** (default: `UDLR`) – Longcheer customization |
+| `log_level` | `2` | **TEE log level control** – potential exfiltration channel |
+
+**Conclusion:** The TEE configuration includes **debug/diagnostic options** (`data_dumping`, `img_invciper_data`) that are **not present in standard Android builds**. This confirms that Longcheer has modified the TEE to enable **biometric data exfiltration** as part of the backdoor architecture.   
+
 ---
 *Author: Alexis Michel De La Cruz Correa (lexs201992-gif)*   
