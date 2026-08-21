@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><sunwave:Config xmlns:sunwave="http://www.sunwavecorp.com/some-location" Environment="TEE" platform="项目信息: trusty-android9">
+  <feature>
+    <key_emulation cname="按键功能开关" default="false" desc="默认：false" format="boolean" useable="true">false</key_emulation>
+    <navigation cname="导航功能开关" default="false" desc="默认：false" format="boolean" useable="true">true</navigation>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </feature>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  <navigation>    
+    <mode cname="导航方向模式选择" default="3" desc="导航方向模式选择。默认：SF_NAV_MODE_AUTO" format="array" options="SF_NAV_MODE_ALL|SF_NAV_MODE_LMR|SF_NAV_MODE_UMD|SF_NAV_MODE_AUTO" useable="true" values="0|1|2|3">3</mode>
+    <direct cname="导航方向映射" default="UDLR" desc="导航方向映射。默认：UDLR" format="string" useable="true">RLUD</direct>
+    <longkey_en cname="导航长按开关" default="true" desc="默认：true" format="boolean" useable="true">false</longkey_en>
+    <frm_num_min cname="导航最小采集帧数" default="5" desc="导航最小采集帧数[3,10]。默认: 5" format="integer" max="10" min="3" useable="true">5</frm_num_min>
+    <frm_num_max cname="导航最大采集帧数" default="100" desc="导航最大采集帧数[5,200]。默认: 100" format="integer" max="200" min="5" useable="true">100</frm_num_max>
+    <thresh_x cname="导航x方向灵敏度" default="18" desc="导航x方向灵敏度[10,30]。默认: 18" format="integer" max="30" min="10" useable="true">18</thresh_x>
+    <thresh_y cname="导航y方向灵敏度" default="18" desc="导航y方向灵敏度[10,30]。默认: 18" format="integer" max="30" min="10" useable="true">18</thresh_y>
+    <rotate_angle cname="导航图像旋转角度" default="0" desc="导航图像旋转角度[0,360]。默认: 0" format="integer" max="360" min="0" useable="true">0</rotate_angle>
+  </navigation>
+  
+  <diagnosis>
+    <img_invciper_data cname="导出原始图像" default="false" desc="需依赖 导出指纹图像。默认：false" format="boolean" useable="true">false</img_invciper_data>
+    <data_dumping cname="导出指纹图像" default="false" desc="默认：false" format="boolean" useable="true">false</data_dumping>
+    <log_level cname="调试信息等级" default="2" desc="LOG 打印等级。默认：LOG_LEVEL_INF" format="array" options="LOG_LEVEL_INF|LOG_LEVEL_ERR" useable="true" values="2|3">2</log_level>
+  </diagnosis>
+  
+  
+  
+  
+  
+</sunwave:Config>
