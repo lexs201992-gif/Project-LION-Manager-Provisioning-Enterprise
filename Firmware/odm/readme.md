@@ -73,6 +73,16 @@ The second half of `wcn.rc` reveals a **region-specific activation system**:
 
 **Critical Finding:** The `ISecureElement` HAL (SIM1/SIM2) and `INfc` HAL are present in **SKU 10** variants, confirming that Longcheer tailors the security stack per hardware configuration. A compromise in SKU 10 enables **SIM cloning** and **NFC credential theft**, expanding the backdoor's exfiltration capabilities beyond biometric data.   
 
+### `media_codecs_c2_secure.xml` – DRM & Screen Mirroring Backdoor
+
+| Codec | Type | Forensic Significance |
+| :--- | :--- | :--- |
+| `c2.unisoc.hevc.decoder.secure` | HEVC (H.265) | **Secure World** video decoding – intercepts DRM content |
+| `c2.unisoc.avc.decoder.secure` | AVC (H.264) | **Secure World** video decoding – standard DRM |
+| `c2.unisoc.vp9.decoder.secure` | VP9 | **Secure World** video decoding – YouTube/Google DRM |
+| `c2.unisoc.avc.encoder.secure` | **WFD/AVC** | **Wireless Display (Miracast)** – enables real-time screen mirroring to C2 |
+
+**Critical Finding:** The `wfd/avc` encoder confirms that the device supports **secure wireless screen mirroring**. Combined with the TEE access documented in `init.sunwave.rc` and `sw_config.xml`, the backdoor can **mirror the user's screen in real-time** to a remote server, exfiltrating everything the user sees (banking apps, messages, secure video).   
 
 ---
 *Author: Alexis Michel De La Cruz Correa (lexs201992-gif)*   
