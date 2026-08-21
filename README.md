@@ -112,6 +112,7 @@ The evidence presented in this advisory demonstrates that Longcheer's network ma
 
 **Only the `ScanStruct/` files** retain the Jenkins build path:
 `/data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/`
+> **Nota:** El path de Jenkins (`Build-LXF_M173`) revela el codename interno del board en el pipeline de Longcheer. La correlación con el board `lion` (Moto G04s) y `m170` (Moto E13) confirma que Longcheer utiliza un **pipeline compartido** para múltiples boards de Motorola.   
 
 All other firmware files have this path **stripped** during the build process. This makes `ScanStruct/` the **sole forensic artifact** that reveals:
 
