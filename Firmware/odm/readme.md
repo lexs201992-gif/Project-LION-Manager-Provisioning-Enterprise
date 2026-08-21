@@ -62,5 +62,17 @@ The second half of `wcn.rc` reveals a **region-specific activation system**:
 
 **Conclusion:** The TEE configuration includes **debug/diagnostic options** (`data_dumping`, `img_invciper_data`) that are **not present in standard Android builds**. This confirms that Longcheer has modified the TEE to enable **biometric data exfiltration** as part of the backdoor architecture.   
 
+### VINTF Manifests: SKU-Specific Security Architecture
+
+| File | Secure Element | NFC | Implication |
+| :--- | :--- | :--- | :--- |
+| `manifest_XT2421-10_1-1.xml` | **SIM1 + SIM2** | **Yes** | Dual-SIM + NFC – **highest exfiltration surface** |
+| `manifest_XT2421-10_0-1.xml` | **SIM1** | **Yes** | Single-SIM + NFC |
+| `manifest_XT2421-5_1-1.xml` | No | No | Basic biometrics only |
+| `manifest_XT2421-5_0-1.xml` | No | No | Basic biometrics only |
+
+**Critical Finding:** The `ISecureElement` HAL (SIM1/SIM2) and `INfc` HAL are present in **SKU 10** variants, confirming that Longcheer tailors the security stack per hardware configuration. A compromise in SKU 10 enables **SIM cloning** and **NFC credential theft**, expanding the backdoor's exfiltration capabilities beyond biometric data.   
+
+
 ---
 *Author: Alexis Michel De La Cruz Correa (lexs201992-gif)*   
