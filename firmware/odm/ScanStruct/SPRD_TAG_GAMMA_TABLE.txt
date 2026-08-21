@@ -1,0 +1,8 @@
+isp_dev_gamma_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../kiface/sprd_isp_r9p0.h
+struct isp_dev_gamma_info {
+	uint32_t bypass;
+	uint8_t gain_r[ISP_FRGB_GAMMA_PT_NUM];
+	uint8_t gain_g[ISP_FRGB_GAMMA_PT_NUM];
+	uint8_t gain_b[ISP_FRGB_GAMMA_PT_NUM];
+};
+
