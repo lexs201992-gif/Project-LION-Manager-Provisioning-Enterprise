@@ -1,18 +1,3 @@
-### The "Black Box" of the Longcheer Build Pipeline
-
-**Only the `ScanStruct/` files** retain the Jenkins build path:
-`/data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/`
-
-All other firmware files have this path **stripped** during the build process. This makes `ScanStruct/` the **sole forensic artifact** that reveals:
-
-- **Build Job:** `Build-LXF_M173_U_MP_SMR_user`
-- **Board Codename:** `LXF_M173`
-- **Production Stage:** `MP` (Mass Production)
-- **Build Type:** `user` (release, not debug)
-- **Module:** Unisoc ISP (`libcamera/iss/`)
-
-This is the **black box** that confirms the firmware was compiled on Longcheer's Jenkins infrastructure for **mass production**, not a prototype or custom build.   
-
 # ScanStruct – ISP Black Box & Longcheer Build Pipeline
 
 **Path:** `/system/vendor/odm/etc/ScanStruct/`
