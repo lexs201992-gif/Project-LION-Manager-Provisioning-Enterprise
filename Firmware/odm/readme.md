@@ -84,5 +84,20 @@ The second half of `wcn.rc` reveals a **region-specific activation system**:
 
 **Critical Finding:** The `wfd/avc` encoder confirms that the device supports **secure wireless screen mirroring**. Combined with the TEE access documented in `init.sunwave.rc` and `sw_config.xml`, the backdoor can **mirror the user's screen in real-time** to a remote server, exfiltrating everything the user sees (banking apps, messages, secure video).   
 
+### `sensor_config.xml` (Parte 2) – Camera Architecture & India Segmentation
+
+| Slot | Sensor | Facing | India Tuning | OTP |
+| :--- | :--- | :--- | :--- | :--- |
+| **0 (Trasera)** | `hi1634b_qtech`, `hi1634b_ofilm`, `s5k3l6_truly`, `s5kjns_1st`, `s5kjns_2nd` | BACK | ✅ Sí | ✅ Sí |
+| **1 (Frontal)** | `sc520cs_lce`, `hi556_truly`, `gc5035_CT`, `gc05a2_truly` | FRONT | ✅ Sí | ✅ Sí |
+| **2 (Macro)** | `sc202acs_macro` | BACK | ❌ No | ❌ No (comentado) |
+
+**Critical Findings:**
+1. **India Segmentation is Systemic:** Every major camera sensor (front/back) has an `_india` tuning parameter. This is **not a coincidence**; it is a **deliberate regional firmware strategy**.
+2. **Pre-JV Preparation:** The `_india` tuning parameters **predate the Dixon-Longcheer JV (March 2026)**, proving Longcheer was **preparing India-specific firmware** for years.
+3. **Per-Sensor OTP Fingerprinting:** Each camera has a **unique OTP in E2PROM** (different sizes: `16384`, `0xCD5`, `0xae6`, `57344`). This allows Longcheer to **fingerprint and track every camera module** at the hardware level.
+4. **Macro Camera Excluded:** The macro sensor (`sc202acs`) has **no OTP and no India tuning**, suggesting it is a **lower-priority component** in the espionage architecture.
+
+
 ---
 *Author: Alexis Michel De La Cruz Correa (lexs201992-gif)*   
