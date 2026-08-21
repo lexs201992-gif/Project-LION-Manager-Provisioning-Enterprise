@@ -1,0 +1,316 @@
+iScene_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ips/lwp/framework/ParamTags.h
+_define_new_ps_param(iScene_info_t,
+    // common info
+    struct common_info_t common_info;
+    // switch info
+    struct switch_info_t switch_info;
+    // scene info
+    struct postproc_info_t postproc_info;
+    // cap info
+    struct cap_info_t cap_info;
+    // sensor_info
+    struct sensor_info_t sensor_info;
+    // threeA_info
+    struct threeA_info_t threeA_info;
+);
+
+common_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+/*define iScene_info struct start*/
+struct common_info_t {
+    uint32_t frameID;
+    uint32_t camID;
+    uint32_t width;
+    uint32_t height;
+    int32_t app_mode;
+    int32_t top_app_id;
+    int32_t sprd_appmode_id;
+    uint64_t prv_scenario_id;
+    uint64_t cap_scenario_id;
+    int32_t device_orientation;
+    zoom_info_t zoom_info;
+    enum takepicture_mode mCaptureMode;
+    multiCameraMode mMultiCameraMode;
+    struct sprd_img_rect dcam_trim;
+    bool isVideoFirstFrame;
+};
+
+zoom_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+typedef struct {
+    float zoom_ratio;
+    struct img_rect cropRegion;
+} zoom_info_t;
+
+img_rect path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_types.h
+struct img_rect {
+    cmr_u32 start_x;
+    cmr_u32 start_y;
+    cmr_u32 width;
+    cmr_u32 height;
+};
+
+sprd_img_rect path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../kiface/interface/cam_sys/sprd_camsys.h
+struct sprd_img_rect {
+	uint32_t x;
+	uint32_t y;
+	uint32_t w;
+	uint32_t h;
+};
+
+switch_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+struct switch_info_t {
+    bool face_beauty_on;
+    bool face_detect_on;
+    bool face_attribute_on;
+    bool smile_capture_on;
+    bool ai_detect_on;
+    bool gesture_detect_on;
+    bool time_wartermark_on;
+    bool logo_watermark_on;
+    bool ultra_portrait_on;
+    bool motion_photo_on;
+    bool filter_on;
+    bool is_dynamic_fps_prev;
+    bool is_recording;
+    bool is_dynamic_fps_video;
+    bool video_hdr_enable;
+    bool video_eis_on;
+    bool motion_detect_on;
+    uint8_t flip_on;
+    uint8_t lightPortraitType;
+    uint8_t blurMode;
+    float f_number;
+    float lens_f_number;
+    uint32_t filter_type;
+    int32_t facebeauty_levels[SPRD_FACE_BEAUTY_PARAM_NUM];
+    button_status_t hdr_button;
+    button_status_t flash_button;
+    struct watermark_param wm_param;
+};
+
+watermark_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+struct watermark_param {
+    int32_t wm_width;
+    int32_t wm_height;
+    int32_t text_size;    //0:small, 1:default, 2:large
+    int32_t location;    //0:left, 1:center, 2:right
+};
+
+postproc_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+struct postproc_info_t {
+    int is_hdr_scene;
+    int is_mfnr_scene;
+    int is_mfsr_scene;
+    int is_mfnr_hdr_scene;
+    int is_raw_mfnr_scene;
+    int is_ai_sfnr_scene;
+    int is_xdr_scene;
+    uint32_t remosaic_type;
+    uint8_t ai_scene_type;
+};
+
+cap_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+struct cap_info_t {
+    uint32_t postproc_type;
+    int normal_num;
+    int total_num;
+    int merge_frame_num;
+    int jpegOrientation;
+    float ev[MAX_CAP_NUM];
+    scene_detect_out_t detect_out;
+    sprd_hdr_detect_out_t hdr_detect_out;
+};
+
+sensor_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+struct sensor_info_t {
+    int sensorOrientation;
+    int binning_factor;
+    uint32_t source_width_max;
+    uint32_t source_height_max;
+    uint32_t image_format;
+    uint32_t image_pattern;
+    uint32_t trim_width;
+    uint32_t trim_height;
+    otp_info_t otp_info;
+    struct img_rect scaler_trim;
+};
+
+otp_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+typedef struct {
+    void *ptr;
+    uint32_t size;
+} otp_info_t;
+
+threeA_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+struct threeA_info_t {
+    struct ae_callback_param ae_info;
+    struct isp_awb_out_param awb_info;
+    struct lsc_info_online lsc_info;
+    af_info_t af_info;
+};
+
+ae_callback_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/ae/inc/ae_ctrl_common.h
+struct ae_callback_param {
+	cmr_s32 cur_bv;
+	cmr_u32 cur_lum;
+	cmr_u32 cur_index;   //no ae
+	float cur_ev;
+	float ev_list[10];
+	cmr_u32 frm_id;   //frame_id
+
+	cmr_u32 face_stable;
+	cmr_u32 face_enable;
+	cmr_u32 face_num;
+	cmr_u32 face_lum;
+	cmr_u32 target_lum;
+	cmr_u32 base_target_lum;  //noface
+
+	cmr_u32 total_gain;   //cur_again
+	cmr_u32 sensor_gain;
+	cmr_u32 isp_gain;
+	cmr_u32 iso;
+	cmr_u32 cur_dgain;    //only 2.x
+	float exposure_time;  // exp time / AEC_LINETIME_PRECESION
+	cmr_u32 exp_line;   //cur_exp_line
+	cmr_u64 exp_time;
+	cmr_u32 dmy_line;
+	cmr_u32 line_time;
+	cmr_u64 cur_effect_exp_time;
+	cmr_u32 cur_effect_exp_line;
+	cmr_u32 cur_effect_dmy_line;
+	cmr_u32 cur_effect_again;
+	cmr_u32 cur_effect_dgain;  // no ae
+	cmr_u32 cur_effect_sensitivity;
+	float cur_effect_fps;
+	float fps;
+
+	cmr_u32 ae_stable;
+	cmr_u32 near_stable;
+	cmr_u8 flash_fired;  // AE_GET_FLASH_EB && AE_CB_LED_NOTIFY && AE_CB_FLASH_FIRED
+	cmr_s32 request_id;
+
+	cmr_u8 start_cap_flag;
+	cmr_u8 ev_calc_done_flag;
+	cmr_u8 to_hal_end_cap_flag;
+	cmr_u8 ae_update_flag;
+	cmr_u8 long_cap_frame_flag;
+	cmr_u32 sof_id;
+	cmr_u32 effect_sof_id;
+	cmr_u32 frame_line;
+	cmr_u32 target_lum_ori;
+	cmr_u32 flag4idx;
+	cmr_u16 abl_weight;
+
+	void *debug_info;
+	cmr_u32 debug_len;
+	cmr_u8 cap_done;
+	cmr_u32 lcg_gain;
+	cmr_u32 evd;
+	cmr_u32 hm_evd;
+	cmr_u8 lowlight_flag; //AE_GET_LOWLIGHT_FLAG_BY_BV
+	cmr_u8 sync_stable; //AE_CB_SYNC_STABLE
+	cmr_u8 nzl_cap_flag; //AE_CB_STAB_NOTIFY
+	cmr_u8 mainflash_enable; //AE_GET_MAINFLASH_EN
+	cmr_u8 flicker_switch_flag; //AE_GET_FLICKER_SWITCH_FLAG
+	cmr_u32 flash_skip_frame_num; //AE_GET_FLASH_SKIP_FRAME_NUM
+	cmr_u8 flicker_mode; //AE_GET_FLICKER_MODE
+	cmr_u32 sensor_role;
+	cmr_u32 flash_status;
+	cmr_u32 flash_mode;
+	cmr_u32 flash_status_mw;
+	cmr_u8 only_update_ispgain;
+	cmr_u8 lock_ae;
+	cmr_u16 final_face_backlight;
+	cmr_s8 face_backlit_flag;
+
+	struct ae_monitor_info ae_monit_inf; //AE_GET_MONITOR_INFO
+	struct ae_get_ev ae_ev; //AE_GET_CALC_RESULTS
+	struct ae_flash_param flash_param;  //AE_GET_CALC_RESULTS,
+	struct ae_fps_range fps_range; //AE_GET_DC_DV_FPS_RANGE
+	struct ae_effect_params ae_eft_param; //AE_GET_EFFECT_MECHANISM
+	struct ae_adjust_param cb_ev_group_param; //AE_CB_EV_GROUP_SET_NOTIFY
+	struct ae_done_cb_infor ae_done_cb; //AE_CB_SETTING_FINISH
+	struct ae_awb_gain flash_awb_gain; //AE_GET_FLASH_WB_GAIN
+	struct sensor_multi_ae_info sensor_info[3];
+	struct ae_rgb_gain_info isp_gain_info;
+	struct ae_leds_ctrl leds_ctrl;  //AE_GET_LEDS_CTRL
+	struct flash_ctrl_cb flash_charge[2]; //ISP_AE_SET_FLASH_CHARGE
+	struct flash_ctrl_cb flash_ctrl; //ISP_AE_FLASH_CTRL
+	struct flash_cali_result flash_calibration_result;// AE_CB_FLASH_CALIBRATION
+	struct flash_cali_stat flash_calibration_stat;
+	struct ae_result_offline offline_aeinfo;
+
+	cmr_u8 *ystat_ptr;
+	cmr_u32 ystat_w;
+	cmr_u32 ystat_h;
+};
+
+isp_awb_out_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../pss/isp2.7/middleware/inc/pss_param_info.h
+struct isp_awb_out_param {
+	cmr_u32 r_gain;
+	cmr_u32 g_gain;
+	cmr_u32 b_gain;
+	cmr_u32 r_offset;
+	cmr_u32 g_offset;
+	cmr_u32 b_offset;
+	cmr_u32 ct;
+	cmr_u32 frame_id;
+	struct statis_param awb_input;
+	cmr_u16 ccm[9];
+	cmr_u32 wb_mode;
+};
+
+statis_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../pss/isp2.7/middleware/inc/pss_param_info.h
+struct statis_param {
+	void *ptr;
+	cmr_u32 size;
+};
+
+lsc_info_online path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../pss/isp2.7/middleware/inc/pss_param_info.h
+struct lsc_info_online {
+	cmr_u32 full_size_width;
+	cmr_u32 full_size_height;
+	cmr_u32 full_size_grid;
+	cmr_u32 full_size_grid_x;
+	cmr_u32 full_size_grid_y;
+	cmr_u32 LSC_SPD_VERSION;
+	cmr_u32 zsl_flag;
+	struct isp_size src_size;
+	struct isp_size prv_size;
+	cmr_u32 lsc_gain_w;
+	cmr_u32 lsc_gain_h;
+	struct sensor_crop_info sns_crop_info;
+};
+
+isp_size path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/common/inc/isp_type.h
+	struct isp_size {
+		cmr_u32 w;
+		cmr_u32 h;
+	};
+
+sensor_crop_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../pss/isp2.7/middleware/inc/isp_mw.h
+struct sensor_crop_info {
+	cmr_u32 ae_update;
+	cmr_u32 lsc_update;
+	cmr_u32 full_image_width;
+	cmr_u32 full_image_height;
+	cmr_u32 binning;  //Nin1, N=1,2,3...
+	cmr_u32 crop;    //crop:1, no_crop:0
+	cmr_u32 crop_start_col;
+	cmr_u32 crop_start_row;
+};
+
+af_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+typedef struct {
+    struct isp_afctrl_roi af_roi_regoin;
+    struct isp_afctrl_roi af_roi_regoin_cap;
+    uint32_t af_pos;
+} af_info_t;
+
+isp_afctrl_roi path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../pss/isp2.7/middleware/inc/isp_mw.h
+struct isp_afctrl_roi {
+	cmr_u32 sx;
+	cmr_u32 sy;
+	cmr_u32 ex;
+	cmr_u32 ey;
+};
+
