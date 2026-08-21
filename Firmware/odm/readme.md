@@ -20,5 +20,24 @@ This directory contains the **ODM-specific configuration** for the Unisoc T606 c
 | `etc/sw_config.xml` | `[INSERT]` |
 | `etc/vintf/vendor_manifest.xml` | `[INSERT]` |
 
+### `wcn.rc` – Regional Activation Logic (Part 2)
+
+The second half of `wcn.rc` reveals a **region-specific activation system**:
+
+| Property | SKU | Script | Region |
+| :--- | :--- | :--- | :--- |
+| `persist.sys.longcheer.wifisar=1` | `1, 2, 3, 4, 7, 8, 9, 10` | `wifisar1eu` | Europe/Global |
+| `persist.sys.longcheer.wifisar=2` | `1, 2, 3, 4, 7, 8, 9, 10` | `wifisar2eu` | Europe/Global |
+| `persist.sys.longcheer.wifisar=6` | `1, 2, 3, 4, 7, 8, 9, 10` | `wifisar6eu` | Europe/Global |
+| `persist.sys.longcheer.wifisar=1` | `6, 11` | `wifisar2anz` | Asia/NZ/Australia |
+| `persist.sys.longcheer.wifisar=2` | `6, 11` | `wifisar3anz` | Asia/NZ/Australia |
+| `persist.sys.longcheer.wifisar=3` | `6, 11` | `wifisar4anz` | Asia/NZ/Australia |
+| `persist.sys.longcheer.wifisar=6` | `6, 11` | `wifisar6anz` | Asia/NZ/Australia |
+
+**Critical Findings:**
+1. **`persist.sys.longcheer.wifisar`** is a **remote kill-switch** that allows Longcheer to activate/deactivate specific hardware modules.
+2. **SKU Segmentation:** The firmware is **not generic**. It contains **11+ region-specific configurations**, proving that Longcheer tailors the backdoor behavior per market.
+3. **Dixon-Longcheer JV Implication:** The India JV will likely introduce a **new SKU** (e.g., `12`) with its own activation logic, replicating this architecture in India's strategic manufacturing hub.   
+
 ---
 *Author: Alexis Michel De La Cruz Correa (lexs201992-gif)*   
