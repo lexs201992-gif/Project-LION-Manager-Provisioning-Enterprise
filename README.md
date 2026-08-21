@@ -108,6 +108,22 @@ Recommendation: CISA, India's CERT-In, and the MeitY should conduct an immediate
 Conclusion
 The evidence presented in this advisory demonstrates that Longcheer's network management architecture, while historically used for carrier lock/unlock, has been weaponized into a persistent, multi-layered backdoor. The recent Dixon-Longcheer Joint Venture represents a critical escalation, as it brings this compromised ODM pipeline into India's strategic manufacturing sector. Immediate action is required to audit the JV's production line and mitigate the risk to global brands assembled by Longcheer. 
 
+### The "Black Box" of the Longcheer Build Pipeline
+
+**Only the `ScanStruct/` files** retain the Jenkins build path:
+`/data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/`
+
+All other firmware files have this path **stripped** during the build process. This makes `ScanStruct/` the **sole forensic artifact** that reveals:
+
+- **Build Job:** `Build-LXF_M173_U_MP_SMR_user`
+- **Board Codename:** `LXF_M173`
+- **Production Stage:** `MP` (Mass Production)
+- **Build Type:** `user` (release, not debug)
+- **Module:** Unisoc ISP (`libcamera/iss/`)
+
+This is the **black box** that confirms the firmware was compiled on Longcheer's Jenkins infrastructure for **mass production**, not a prototype or custom build.   
+[https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/main/firmware/odm/ScanStruct/readme.md]
+
 ## Chain of Custody & Legal Compliance
 
 *   **Dispositivo:** Motorola Moto G04s (XT2421-7) / Board `lion` / Spreadtrum T606 
