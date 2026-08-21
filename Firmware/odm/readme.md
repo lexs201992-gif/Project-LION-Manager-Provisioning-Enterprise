@@ -84,6 +84,18 @@ The second half of `wcn.rc` reveals a **region-specific activation system**:
 
 **Critical Finding:** The `wfd/avc` encoder confirms that the device supports **secure wireless screen mirroring**. Combined with the TEE access documented in `init.sunwave.rc` and `sw_config.xml`, the backdoor can **mirror the user's screen in real-time** to a remote server, exfiltrating everything the user sees (banking apps, messages, secure video).   
 
+### `sensor_config.xml` – Regional Camera Segmentation & India Preparation
+
+| Element | Value | Forensic Significance |
+| :--- | :--- | :--- |
+| `TuningParameterIndia` | `hi1634b_qtech_main_india` | **India-specific camera tuning** – confirms regional firmware segmentation |
+| `SensorRole` | `single_ir` | **Infrared capability** – enables low-light surveillance |
+| `OTP/E2prom` | `16384 bytes` | **One-Time Programmable memory** – per-sensor calibration/fingerprint |
+| **Multiple Sensors** | hi1634b, s5k3l6, s5kjns | **Hardware variants** per market |
+
+**Critical Finding:** The `_india` suffix in camera tuning parameters **predates the Dixon-Longcheer JV (March 2026)**, proving that Longcheer had been **preparing India-specific firmware** for years. The JV is not a new development; it is the **commercialization of a long-term strategy** to embed Longcheer's architecture in India's manufacturing hub.   
+
+
 ### `sensor_config.xml` (Parte 2) – Camera Architecture & India Segmentation
 
 | Slot | Sensor | Facing | India Tuning | OTP |
