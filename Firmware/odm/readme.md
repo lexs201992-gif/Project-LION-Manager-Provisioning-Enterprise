@@ -39,5 +39,14 @@ The second half of `wcn.rc` reveals a **region-specific activation system**:
 2. **SKU Segmentation:** The firmware is **not generic**. It contains **11+ region-specific configurations**, proving that Longcheer tailors the backdoor behavior per market.
 3. **Dixon-Longcheer JV Implication:** The India JV will likely introduce a **new SKU** (e.g., `12`) with its own activation logic, replicating this architecture in India's strategic manufacturing hub.   
 
+### `init.sunwave.rc` – TEE & Fingerprint Compromise
+
+| Element | Forensic Significance |
+| :--- | :--- |
+| `gf_spi_tee.ko` | **Goodix fingerprint driver loaded in TEE** – direct access to biometric templates in Secure World |
+| `on factorytest` | Driver loaded during **factory validation** – backdoor survives factory reset |
+| `/dev/goodix_fp` (0666) | **World-readable/writable** – allows any process to access the fingerprint sensor node |
+
+**Conclusion:** The fingerprint sensor is managed in the **TEE** with **insecure permissions (0666)**, enabling biometric data exfiltration or spoofing by compromised components (`co.sitic.pp`, `com.motorola.enterprise.adapter.service`).   
 ---
 *Author: Alexis Michel De La Cruz Correa (lexs201992-gif)*   
