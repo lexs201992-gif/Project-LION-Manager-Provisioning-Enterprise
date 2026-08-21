@@ -1,0 +1,36 @@
+awb_ctrl_calc_result path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/common/inc/isp_common_types.h
+struct awb_ctrl_calc_result {
+	struct awb_ctrl_gain gain;
+	struct awb_ctrl_offset offset;
+	cmr_u32 ct;
+	cmr_u32 awb_ccm;
+	cmr_u32 use_ccm;
+	cmr_u16 ccm[9];
+	cmr_u32 update_gain;
+	cmr_u32 update_ccm;
+	struct tg_awb_ctrl_alc_log log_awb;
+	cmr_u32 frame_id;
+	cmr_u32 wb_mode;
+};
+
+awb_ctrl_gain path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/common/inc/isp_common_types.h
+struct awb_ctrl_gain {
+	cmr_u32 r;
+	cmr_u32 g;
+	cmr_u32 b;
+	cmr_u16 ccm[9];
+};
+
+awb_ctrl_offset path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/common/inc/isp_common_types.h
+struct awb_ctrl_offset {
+	cmr_u32 r_offset;
+	cmr_u32 g_offset;
+	cmr_u32 b_offset;
+};
+
+tg_awb_ctrl_alc_log path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/common/inc/isp_common_types.h
+struct tg_awb_ctrl_alc_log {
+	cmr_u8 *log;
+	cmr_u32 size;
+};
+
