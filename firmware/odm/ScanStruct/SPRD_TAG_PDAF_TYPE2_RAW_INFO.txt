@@ -1,0 +1,22 @@
+pdaf_buffer_handle path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_sensor_info.h
+struct pdaf_buffer_handle {
+    void *left_buffer;
+    void *right_buffer;
+    void *left_output;
+    void *right_output;
+    struct sensor_pdaf_roi_param roi_param;
+    cmr_int roi_pixel_numb;
+    cmr_s32 frameid;
+    cmr_u32 camera_id;
+    cmr_u32 roi_width;
+    cmr_u32 roi_height;
+};
+
+sensor_pdaf_roi_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_sensor_info.h
+struct sensor_pdaf_roi_param {
+    cmr_u32 roi_start_x;
+    cmr_u32 roi_start_y;
+    cmr_u32 roi_area_width;
+    cmr_u32 roi_area_height;
+};
+
