@@ -1,0 +1,181 @@
+scene_detect_out_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+typedef struct {
+    uint32_t postproc_type;
+    float ev[MAX_CAP_NUM];
+    int total_num;
+    int normal_num;
+    sprd_hdr_detect_out_t hdr_detect_out;
+    int cur_frame_merge_frame_num;
+    sprd_raw_mfnr_detect_out_t raw_mfnr_detect_out;
+    xdr_detect_out_param_t xdr_detect_out;
+    int motion_detect;
+    int is_flash_scene;
+    int is_hdr_scene;
+    int is_mfnr_scene;
+    int is_mfsr_scene;
+    int is_mfnr_hdr_scene;
+    int is_raw_mfnr_scene;
+    int is_xdr_scene;
+    int is_filter_scene;
+    int is_thumb_zsl_frame;
+    int is_thumb_nozsl_frame;
+    int is_highlight_nozsl;
+    int is_izoom;
+    int is_sn_scene;
+} scene_detect_out_t;
+
+sprd_hdr_detect_out_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_easy_hdr/inc/sprd_hdr_adapter.h
+typedef struct
+{
+    float       ev[HDR_IMG_NUM_MAX];
+    uint32_t    shutter[HDR_IMG_NUM_MAX];
+    uint32_t    gain[HDR_IMG_NUM_MAX];
+    int         frame_num;
+    int         tuning_param_index;
+    uint64_t    clock;
+    int         bv;
+    uint32_t    face_num;
+    uint32_t    prop_dark;
+    uint32_t    prop_bright;
+    uint32_t    sceneChosen;
+    int         scene_flag;
+    int         normalNum;
+}sprd_hdr_detect_out_t;
+
+sprd_raw_mfnr_detect_out_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../common/inc/cmr_common.h
+typedef struct {
+    int total_frame_num;
+} sprd_raw_mfnr_detect_out_t;
+
+xdr_detect_out_param_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct
+{
+    float ev[XDR_MAX_FUSION_FRAME];
+    int fusion_class_chosen;
+    int fusion_scene_chosen;
+    int align_merge_class_chosen;
+    int ref_frame_num;
+    int normal_frame_num;
+    int total_frame_num;
+    int scene_flag;
+    int scene_day;
+    xdr_fd_param fd_param;
+    uint64_t clock;
+    xdr_exif_info_t exif_info;
+} xdr_detect_out_param_t;
+
+xdr_fd_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct {
+    uint16_t width;
+    uint16_t height;
+    uint16_t face_num;
+    xdr_face face_area[XDR_MAX_FD_NUM];
+} xdr_fd_param;
+
+xdr_face path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct {
+    int start_x;
+    int start_y;
+    int end_x;
+    int end_y;
+} xdr_face_rect;
+
+xdr_face_rect path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct {
+    int start_x;
+    int start_y;
+    int end_x;
+    int end_y;
+} xdr_face_rect;
+
+xdr_exif_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct
+{
+    uint32_t version;
+    uint32_t gain[XDR_MAX_FUSION_FRAME];
+    uint32_t shutter[XDR_MAX_FUSION_FRAME];
+    int bv;
+    uint32_t prop_dark;
+    uint32_t prop_bright;
+    int ev[XDR_MAX_FUSION_FRAME];//chuyi10000
+    int fusion_class_chosen;
+    int fusion_scene_chosen;
+    int align_merge_class_chosen;
+    int ref_frame_num;
+    int normal_frame_num;
+    int total_frame_num;
+    align_merge_exif_info_t align_merge_exif;
+    int scene_day;
+    uint32_t face_num;
+    xdr_face_rect face_rect[XDR_MAX_FD_NUM];
+    fusion_exif_info_t fusion_exif;
+} xdr_exif_info_t;
+
+align_merge_exif_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct {
+    int total_gain;
+    int const0;
+    int k_thr;
+    int k_thegma;
+    int filter2_thr;
+    int thr_r;
+    int gf_a_ratio;
+    int sigma_py_denoise;
+    int face_open;
+    int face_thr_ratio;
+
+    int temp1;//chuyi10000
+    int temp2;//chuyi10000
+    int temp3;//chuyi10000
+    int temp4;//chuyi10000
+    int temp5;//chuyi10000
+} align_merge_exif_info_t;
+
+fusion_exif_info_t path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../arithmetic/sprd_xdr/inc/sprd_xdr_api.h
+typedef struct {
+    int light_level0;
+    int light_level1;
+    int light_level2;
+    int light_level3;
+    int diff_thr1;///chuyi10000
+    int diff_thr2;///chuyi10000
+    int diff_ratio_oe1;///chuyi10000
+    int diff_ratio_oe2;///chuyi10000
+    int diff_flag;//in night_process.cpp ,no tuning param
+    int lum_light;///chuyi10000
+    int lum_mean;///chuyi10000
+    int dilate_r0;
+    int dilate_r1;
+    int dilate_r2;
+    int erode_r0;
+    int erode_r1;
+    int erode_r2;
+    int hist_h0_limith;///chuyi10000
+    int hist_h1_limith;///chuyi10000
+    int hist_h1_th1;///chuyi10000
+    int hist_h1_th2;///chuyi10000
+    int hist_h1_ratio;///chuyi10000
+    int hist_h1_limite;///
+    int hist_m0_limith;///chuyi10000
+    int hist_m1_limith;///chuyi10000
+    int hist_m1_th1;///chuyi10000
+    int hist_m1_th2;///chuyi10000
+    int hist_m1_ratio;///chuyi10000
+    int hist_m1_limite;///
+    int hist_face1_limith;///chuyi10000
+    int hist_face1_th1;///chuyi10000
+    int hist_face1_th2;///chuyi10000
+    int hist_face1_ratio;///chuyi10000
+    int hist_face1_limite;///
+    int add_lap_ratio;///chuyi10000
+    int add_satu_ratio_all;///chuyi10000
+    int add_satu_ratio_light;///chuyi10000
+    int add_satu_ratio_face;///chuyi10000
+
+    int temp1;//chuyi10000
+    int temp2;//chuyi10000
+    int temp3;//chuyi10000
+    int temp4;//chuyi10000
+    int temp5;//chuyi10000
+} fusion_exif_info_t;
+
