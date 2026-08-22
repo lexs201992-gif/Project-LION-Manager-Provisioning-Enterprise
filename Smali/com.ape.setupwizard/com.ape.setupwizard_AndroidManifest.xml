@@ -1,0 +1,267 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="34" android:versionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" package="com.ape.setupwizard" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.PEERS_MAC_ADDRESS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.vending.setup.PLAY_SETUP_SERVICE"/>
+    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN"/>
+    <uses-permission android:name="android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS"/>
+    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS"/>
+    <uses-permission android:name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS_PRIVILEGED"/>
+    <uses-permission android:name="com.motorola.setup.permission.NOTIFY_POST_SETUP"/>
+    <uses-permission android:name="com.motorola.setup.permission.CUSTOMIZATION_RECEIVER"/>
+    <uses-permission android:name="com.motorola.digitalpersonalization.permission.READ_CREDENTIALS"/>
+    <uses-permission android:name="com.motorola.blur.service.blur.Permissions.INTERACT_BLUR_SERVICE"/>
+    <uses-permission android:name="com.motorola.ccc.ota.Permissions.INTERACT_OTA_SERVICE"/>
+    <uses-permission android:name="com.motorola.permission.ACCESS_CHECKIN"/>
+    <uses-permission android:name="com.motorola.ccc.plm.permission.READPROVIDER"/>
+    <uses-permission android:name="com.motorola.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <permission android:label="@0x7f1100d3" android:name="com.motorola.setup.permission.NOTIFY_POST_SETUP" android:protectionLevel="signature"/>
+    <permission android:name="com.motorola.setup.permission.CUSTOMIZATION_RECEIVER" android:protectionLevel="signature"/>
+    <permission android:name="com.motorola.setup.permission.GET_PRIVACY_TITLE" android:protectionLevel="signature"/>
+    <queries>
+        <package android:name="com.motorola.spaces"/>
+        <intent>
+            <action android:name="com.android.setupwizard.action.PARTNER_CUSTOMIZATION"/>
+        </intent>
+    </queries>
+    <permission android:name="com.google.android.setupdesign.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.android.setupdesign.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <permission android:name="com.airbnb.lottie.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.airbnb.lottie.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <permission android:name="com.google.android.material.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.google.android.material.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <permission android:name="androidx.appcompat.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="androidx.appcompat.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <permission android:name="androidx.recyclerview.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="androidx.recyclerview.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application android:theme="@0x7f1204f6" android:label="@0x7f11001e" android:icon="@0x7f0e0001" android:name="com.ape.setupwizard.MotoApplication" android:allowBackup="false" android:supportsRtl="true" android:extractNativeLibs="false" android:roundIcon="@0x7f0e0002" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:usesNonSdkApi="true">
+        <uses-library android:name="moto-settings"/>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoPrivacyActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_PRIVACY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoPhoneProtectActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.PHONE_PROTECT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.PrivacyDetailsViewSettings" android:exported="true">
+            <intent-filter>
+                <action android:name="com.motorola.intent.action.MOTOROLA_FULL_PRIVACY_POLICY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoPrivacyControlActivity" android:exported="true"/>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoCPForIDActivity" android:exported="true"/>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.StayInTouchActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.STAY_IN_TOUCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.StayInTheKnowActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.STAY_IN_THE_KNOW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.ThereMoreActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.THERE_MORE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.AlmostThereActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.ALMOST_THERE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.CarrierLocationActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.CARRIER_LOCATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.PrivacyUpdateActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_PRIVACY_UPDATE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.PrivacyUpdateControlActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_PRIVACY_UPDATE_CONTROL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.JioLockActivity" android:exported="false"/>
+        <activity android:name="com.ape.setupwizard.activity.MotoMultiSimWrapper" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize" android:noHistory="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.SIM_SETUP_WRAPPER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012a" android:name="com.ape.setupwizard.activity.MotoCellularDataSelect" android:exported="true" android:immersive="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.SIM_SETUP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ape.setupwizard.activity.GlanceWrapper" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.GLANCE_WRAPPER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ape.setupwizard.activity.TaboolaWrapper" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.TABOOLA_WRAPPER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.YTMusicActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ape.android.setupwizard.MOTO_YT_MUSIC"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ape.setupwizard.activity.CpfWrapper" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.CPF_WRAPPER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ape.setupwizard.activity.JioWrapper" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.JIO_WRAPPER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoTheme" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_THEME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoNavigation" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_NAVIGATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoFinishActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_FINISH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoOtaUpdateActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.MOTO_OTA_UPDATE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ape.setupwizard.demomode.DemoModeWrapper" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.DEMO_MODE_WRAPPER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ape.setupwizard.activity.ApnSettingWrapper" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.APN_SETTING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoSimCardGraphicActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.SIM_CARD_GRAPHIC"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120115" android:name="com.ape.setupwizard.activity.MotoFamilySpaceActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.moto.android.setupwizard.FAMILY_SPACE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.ape.setupwizard.SuwCustomizationReceiver" android:permission="com.motorola.setup.permission.CUSTOMIZATION_RECEIVER" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.setupwizard.action.PARTNER_CUSTOMIZATION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.ape.setupwizard.LocaleChangedReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.ape.setupwizard.SuwWifiService" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.net.wifi.SCAN_RESULTS"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.ape.setupwizard.activity.PrivacyTransitionActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category" android:value="com.android.settings.category.ia.privacy"/>
+            <meta-data android:name="com.android.settings.icon" android:resource="@0x7f0800d0"/>
+            <meta-data android:name="com.android.settings.bg.hint" android:resource="@0x7f060044"/>
+            <meta-data android:name="com.android.settings.title" android:resource="@0x7f11009b"/>
+            <meta-data android:name="com.android.settings.title_uri" android:value="content://com.ape.setupwizard.PRIVACY/GET_privacy_title"/>
+            <meta-data android:name="com.android.settings.summary" android:value=""/>
+            <meta-data android:name="com.android.settings.order" android:value="0"/>
+            <meta-data android:name="com.android.settings.profile" android:value="primary_profile_only"/>
+        </activity>
+        <provider android:name="com.ape.setupwizard.PrivacyTitleProvider" android:permission="com.motorola.setup.permission.GET_PRIVACY_TITLE" android:exported="true" android:authorities="com.ape.setupwizard.PRIVACY"/>
+        <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="com.ape.setupwizard.androidx-startup">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+        </provider>
+        <service android:name="com.ape.setupwizard.MotoService" android:foregroundServiceType="dataSync"/>
+        <receiver android:name="com.ape.setupwizard.MotoReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <receiver android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
