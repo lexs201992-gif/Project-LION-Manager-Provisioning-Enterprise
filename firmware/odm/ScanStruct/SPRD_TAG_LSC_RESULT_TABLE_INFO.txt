@@ -1,0 +1,9 @@
+alsc_update_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/lsc/inc/lsc_adv.h
+struct alsc_update_info {
+	cmr_u32 alsc_update_flag;
+	cmr_u16 can_update_dest;
+	cmr_u16 *lsc_buffer_addr;
+	cmr_u16 *offline_lsc_buffer_addr;
+	cmr_u32 frame_id;
+};
+
