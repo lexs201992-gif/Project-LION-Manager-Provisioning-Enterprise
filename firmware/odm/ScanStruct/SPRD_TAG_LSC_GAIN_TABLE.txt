@@ -1,0 +1,14 @@
+dcam_dev_lsc_info path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../kiface/sprd_isp_r9p0.h
+struct dcam_dev_lsc_info {
+	uint32_t bypass;
+	uint32_t update_all;
+	uint32_t grid_width;
+	uint32_t grid_x_num;
+	uint32_t grid_y_num;
+	uint32_t grid_num_t;
+	uint32_t gridtab_len;
+	uint32_t weight_num;
+	void __user * grid_tab;
+	void __user * weight_tab;
+};
+
