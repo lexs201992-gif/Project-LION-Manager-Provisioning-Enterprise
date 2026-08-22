@@ -1,0 +1,40 @@
+alsc_update_weight_table_out path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/lsc/inc/lsc_adv.h
+struct alsc_update_weight_table_out {
+	struct dcam_dev_lsc_info_stru lsc_info;
+	struct dcam_dev_lsc_info_stru lsc_info1080;
+	uint32_t frame_id;
+	struct lsc_sensor_setting_param sensor_setting;
+};
+
+dcam_dev_lsc_info_stru path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/lsc/inc/lsc_adv.h
+struct dcam_dev_lsc_info_stru {
+	uint32_t update_flag;
+	uint32_t bypass;
+	uint32_t update_all;
+	uint32_t grid_width;
+	uint32_t grid_x_num;
+	uint32_t grid_y_num;
+	uint32_t grid_num_t;
+	uint32_t gridtab_len;
+	uint32_t weight_num;
+	uint32_t weight_num_x;
+	uint32_t weight_num_y;
+	uint64_t grid_tab_addr;
+	uint64_t weight_tab_addr;
+	uint64_t weight_tab_addr_x;
+	uint64_t weight_tab_addr_y;
+	uint32_t grid_width_x;
+	uint32_t grid_width_y;
+};
+
+lsc_sensor_setting_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../ispalg/lsc/inc/lsc_adv.h
+struct lsc_sensor_setting_param{
+	unsigned int full_image_width;
+	unsigned int full_image_height;
+	unsigned int binning;  //Nin1, N=1,2,3...
+	unsigned int crop;    //crop:1, no_crop:0
+	unsigned int crop_start_col;
+	unsigned int crop_start_row;
+	unsigned int update; //
+};
+
