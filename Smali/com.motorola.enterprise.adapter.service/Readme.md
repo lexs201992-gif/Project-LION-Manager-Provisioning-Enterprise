@@ -7,10 +7,10 @@ community
 Alex de la cruz
 México city Sat Aug 22/08/2026
 
-MD5: 4FDB2523F841747F08FC647844375AFB
-SHA-1:39a2ca57e3915ead0e335481a30e2c2e52409ba8
-SHA-256:be8804a55e9045a580d204979f6efb15c058731aa1021b78c046feab8ae76a26
-X509:Certificate:
+## MD5: 4FDB2523F841747F08FC647844375AFB
+## SHA-1:39a2ca57e3915ead0e335481a30e2c2e52409ba8
+## SHA-256:be8804a55e9045a580d204979f6efb15c058731aa1021b78c046feab8ae76a26
+## X509:Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 14529965695203710538 (0xc9a4ced1153a964a)
@@ -99,32 +99,32 @@ X509:Certificate:
          88:2c:2e:e5:08:c9:d0:7f:c5:ba:8a:52:7e:1b:97:5d:ca:77:
          f1:5d:e1:5f:50:24:ed:9c
 
-         serial number: c9a4ced1153a964a
-         public key type: RSA (Rivest–Shamir–Adleman)
-         issuer:CN=MotoAndroidApp 998-1-1,OU=MBG,O=Motorola,L=Chicago,ST=Illinois,C=US
-         subject: CN=MotoAndroidApp 998-1-1,OU=MBG,O=Motorola,L=Chicago,ST=Illinois,C=US
-         Valid from: Wed Dec 18 03:23:17 EST 2019
-         Valid until:Sun May 05 03:23:17 EST 2047
+## serial number: c9a4ced1153a964a
+## public key type: RSA (Rivest–Shamir–Adleman)
+## issuer:CN=MotoAndroidApp 998-1-1,OU=MBG,O=Motorola,L=Chicago,ST=Illinois,C=US
+## subject: CN=MotoAndroidApp 998-1-1,OU=MBG,O=Motorola,L=Chicago,ST=Illinois,C=US
+## Valid from: Wed Dec 18 03:23:17 EST 2019
+## Valid until:Sun May 05 03:23:17 EST 2047
 
-Package Name:com.motorola.enterprise.adapter.service
-Version: 14
-Version code: 34
-Data: /data/user/0/com.motorola.enterprise.adapter.service
-APK (Base package): /apex/com.motorola.enterprise/priv-app/EnterpriseAdapterService@USM34M.1/EnterpriseAdapterService.apk | 4.0 MB
-Public source directory:/apex/com.motorola.enterprise/priv-app/EnterpriseAdapterService@USM34M.1/EnterpriseAdapterService.apk
-Device-Protected Data directory:/data/user_de/0/com.motorola.enterprise.adapter.service
-External data directory:/storage/emulated/0/Android/data/com.motorola.enterprise.adapter.service
-Native libraries directory: /apex/com.motorola.enterprise/priv-app/EnterpriseAdapterService@USM34M.1/lib/arm64
-UID: 10204
-Install Date: Wed, 1969 Dec 31, 06:00 PM
-Update Date: Wed, 1969 Dec 31, 06:00 PM
-Minimun Sdk: 33, Android 13
-Target Sdk: 34, Android 14
-Method count: Single Dex, 49,410
-Apex: No
-Application Type: System
-Installer: Unknown
-Uses features: N/A
+## Package Name:com.motorola.enterprise.adapter.service
+* Version: 14
+* Version code: 34
+* Data: /data/user/0/com.motorola.enterprise.adapter.service
+* APK (Base package): /apex/com.motorola.enterprise/priv-app/EnterpriseAdapterService@USM34M.1/EnterpriseAdapterService.apk | 4.0 MB
+* Public source directory:/apex/com.motorola.enterprise/priv-app/EnterpriseAdapterService@USM34M.1/EnterpriseAdapterService.apk
+* Device-Protected Data: directory:/data/user_de/0/com.motorola.enterprise.adapter.service
+* External data:  directory:/storage/emulated/0/Android/data/com.motorola.enterprise.adapter.service
+* Native libraries directory: /apex/com.motorola.enterprise/priv-app/EnterpriseAdapterService@USM34M.1/lib/arm64
+* UID: 10204
+* Install Date: Wed, 1969 Dec 31, 06:00 PM
+* Update Date: Wed, 1969 Dec 31, 06:00 PM
+* Minimun Sdk: 33, Android 13
+* Target Sdk: 34, Android 14
+* Method count: Single Dex, 49,410
+* Apex: No
+* Application Type: System
+* Installer: Unknown
+* Uses features: N/A
 
 
           
