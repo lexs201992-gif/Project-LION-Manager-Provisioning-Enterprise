@@ -127,7 +127,7 @@ This is the **black box** that confirms the firmware was compiled on Longcheer's
 
 # APE Setup Wizard Scripts (com.ape.setupwizard)
 
-**Location in repository:** `Smali/apesetupwizard/scripts/`
+**Location in repository:** `Smali/com.ape.setupwizard`
 [https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/tree/main/Smali/com.ape.setupwizard]
 
 **Evidence of Longcheer ODM supply-chain connection point**  
