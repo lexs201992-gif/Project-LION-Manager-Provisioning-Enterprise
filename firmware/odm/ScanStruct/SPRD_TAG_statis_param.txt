@@ -1,0 +1,6 @@
+statis_param path = /data/jenkins/workspace/Build-LXF_M173_U_MP_SMR_user/vnd/vendor/sprd/modules/libcamera/iss/ScanStruct/../../pss/isp2.7/middleware/inc/pss_param_info.h
+struct statis_param {
+	void *ptr;
+	cmr_u32 size;
+};
+
