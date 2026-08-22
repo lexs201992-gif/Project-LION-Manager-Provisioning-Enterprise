@@ -1,8 +1,12 @@
 # Project LION: Manager Provisioning Enterprise – Primary C2 Injector & Spyware Architecture
 **Advisory ID:** GHSA-[PENDING]
+
 **Severity:** CRITICAL (CVSS 9.8)
+
 **Date:** 2026-08-20
+
 **Author:** Alexis Michel De La Cruz Correa (lexs201992-gif)
+
 **Status:** Unpatched / No Vendor Fix
 
 # Laboratory Device Technical Sheet
