@@ -37,3 +37,14 @@ Together, they form an **automated surveillance and resource management system**
 - Prioritizes CPU for specific apps (WeChat, Facebook, Netflix)
 - Kills the camera app (`com.motorola.odm.camera3`) in 260ms
 - Schedules processes based on ML predictions
+
+### `UniFeature.xml` (Final) – Call, Prefork, Click & Process Bind Monitoring
+
+| Feature | ID | Switch | Critical Finding |
+| :--- | :--- | :--- | :--- |
+| `IncomingCallScene` | 15 | ON | **`FAST_KILL: *,180`** – Kills ALL processes in 180ms on incoming call |
+| `PreforkProcessScene` | 16 | ON | **Pre-fork whitelist:** WhatsApp, Amazon, Photos – persistent in memory |
+| `ClickScene` | 17 | ON | **Touch event monitoring** – `POWER_BOOST` on every tap |
+| `ProcessBindBoostScene` | 18 | ON | **CPU priority** for Viber, Spotify, YouTube Music, Amazon |
+
+**Critical Finding:** The `ClickScene` feature monitors **every touch interaction** (`unievent_motion_event`), providing **kernel-level user behavior tracking**. The `PreforkProcessScene` keeps **WhatsApp, Amazon, and Photos** persistently in memory, ready for data access. The `IncomingCallScene` `FAST_KILL: *,180` ensures the backdoor **restarts after every call**, reactivating C2.   
