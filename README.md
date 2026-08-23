@@ -104,6 +104,20 @@ The firmware analysis reveals a **kernel-level backdoor architecture** in the Lo
 2. **Monitor** for network traffic to the C2 IPs documented in [`Dialer_splitter_c2.rules`](https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/main/Rules/Dialer_splitter_c2.rules)
 3. **Report** confirmed compromises to CISA, CERT-In, and the OEM's PSIRT.   
 
+## Advisories & Forensic Papers
+
+### 🔴 CVE-2022-38694 – Silicon-Anchored Backdoor in Unisoc T606/T616/SC9863A
+**Persistent RCE via BootROM and Kernel-Level Privilege Escalation – BOD 26-04 Tier 1**
+
+> Full technical advisory, BOD 26-04 Four-Variable Model, CISA-ADP scoring (7.8 HIGH), forensic evidence (`ueventd.rc`) and Velociraptor VQL detection.
+
+📄 **Full Paper:** [CVE-2022-38694.md](https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/a310e16ec48cd2b3e1b6c898df7bddd2f218a83e/CVE-2022-38694.md)
+
+- **Commit:** `a310e16` – Verified – 119 lines – 5.81 KB
+- **Vector:** `CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H`
+- **CWE-250:** Execution with Unnecessary Privileges
+- **Evidence:** `Firmware/etc/ueventd.rc` (b26cf039...), `firmware/odm/ueventd.rc`
+
 ## Historical Context & Geopolitical Risk Assessment
 - Evidence of a 20+ Year Network Management Architecture
 The "Dialer/Splitter" and remote network management architecture documented in this advisory is not a recent anomaly but a systemic design pattern maintained by Longcheer for over two decades.
