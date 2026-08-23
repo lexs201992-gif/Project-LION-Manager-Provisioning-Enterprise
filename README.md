@@ -284,4 +284,4 @@ Disclosure: Coordinated with CISA and Motorola CSIRT.
 * https://github.com/MM2-0/Kvaesitso/issues/1319
 * https://www.martview-forum.com/threads/unsuccessfull-unlock-credits-deducted.132968/
 * https://github.com/lp5800n95
-* [Project Qogirl6: Forensic Evidence of Longcheer Supply Chain Compromise Exploiting CVE-2025-31710 (cmd_skt) for Persistent Root and Multi-Channel Exfiltration] [https://github.com/rapid7/attackerkb/issues/87]
+* [Project Qogirl6: Forensic Evidence of Longcheer Supply Chain Compromise Exploiting CVE-2025-31710 (cmd_skt) for Persistent Root and Multi-Channel Exfiltration](https://github.com/rapid7/attackerkb/issues/87)
