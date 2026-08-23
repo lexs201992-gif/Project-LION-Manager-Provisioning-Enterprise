@@ -1,13 +1,13 @@
 # ==============================================================================
 # Project LION: Dialer/Splitter & C2 Infrastructure Detection
-# Author: Alexis Michel De La Cruz Correa (lexs201992-gif)
-# Date: 2026-08-20
+# Author's: Alexis Michel De La Cruz Correa (lexs201992-gif) & Brave LLM (Logical Verification Filter)
+# Date: 2026-08-22
 # Severity: CRITICAL
 # ==============================================================================
 
 # 1. Detect Local Dialer/Splitter Forwarding (Low Ports -> 443)
-# These rules detect internal traffic where the device (10.215.173.1 / 192.168.101.4)
-# forwards traffic from suspicious low ports to destination port 443.
+# These rules detect internal traffic where the device forwards traffic 
+# from suspicious low ports to destination port 443.
 alert tcp $HOME_NET any -> $HOME_NET 443 (msg:"PROJECT-LION Local Dialer Splitter Forwarding to 443"; flow:to_server; dsize:>0; classtype:trojan-activity; sid:1000001; rev:1; metadata:created_at 2026_08_20, author Alexis Michel De La Cruz Correa;)
 
 # 2. Detect Specific Dialer Ports (212, 252, 314, 203, 170, 211, 460, 629, 831, 5666, 4864, 55518)
@@ -23,17 +23,12 @@ alert tcp $HOME_NET any -> [142.104.2.0/24,84.212.60.182,52.36.161.184] 443 (msg
 alert tcp $HOME_NET any -> [172.67.214.246,172.67.70.25] 443 (msg:"PROJECT-LION C2 Connection to Cloudflare Pangle/TikTok Abuse"; flow:to_server; classtype:trojan-activity; sid:1000005; rev:1; metadata:created_at 2026_08_20, author Alexis Michel De La Cruz Correa;)
 
 # 6. Detect QUIC/UDP 443 Camouflage (Evasion Technique)
-# Suricata can detect QUIC traffic on UDP 443. This rule alerts on UDP 443 traffic
-# to known C2 IPs, which is a strong indicator of the QUIC camouflage technique.
+# Alerts on UDP 443 traffic to known C2 IPs, indicating QUIC camouflage.
 alert udp $HOME_NET any -> [13.224.125.70,142.104.2.0/24,84.212.60.182,172.67.214.246] 443 (msg:"PROJECT-LION QUIC/UDP 443 Camouflage to C2"; flow:to_server; classtype:trojan-activity; sid:1000006; rev:1; metadata:created_at 2026_08_20, author Alexis Michel De La Cruz Correa;)
 
-# 7. Detect DNS DoT 853 RST Evasion (If logging TCP RSTs)
-# This rule is for detecting the "Connection Reset by Peer" behavior on DoT 853.
-# It alerts if a TCP connection to port 853 is reset quickly.
+# 7. Detect DNS DoT 853 RST Evasion
+# Alerts if a TCP connection to port 853 (DoT) is established to specific resolvers.
 alert tcp $HOME_NET any -> [9.9.9.9,2620:fe::fe] 853 (msg:"PROJECT-LION DNS DoT 853 Connection (Potential RST Evasion)"; flow:to_server; classtype:policy-violation; sid:1000007; rev:1; metadata:created_at 2026_08_20, author Alexis Michel De La Cruz Correa;)
-
-# 8. Detect Longcheer FOTA/C2 Domains (DNS)
-alert dns $HOME_NET any -> any any (msg:"PROJECT-LION Longcheer FOTA/C2 Domain Resolution"; dns.query; content:"|2e|longcheer|2e|com|"; nocase; content:"|2e|svcmot|2e|com|"; nocase; content:"|2e|apeccloud|2e|com|"; nocase; classtype:trojan-activity; sid:1000008; rev:1; metadata:created_at 2026_08_20, author Alexis Michel De La Cruz Correa;)   
 
 # 8a. Detect Longcheer Domain
 alert dns $HOME_NET any -> any any (msg:"PROJECT-LION Longcheer FOTA/C2 Domain Resolution"; dns.query; content:"longcheer.com"; nocase; classtype:trojan-activity; sid:1000008; rev:1;)
