@@ -34,3 +34,12 @@ alert tcp $HOME_NET any -> [9.9.9.9,2620:fe::fe] 853 (msg:"PROJECT-LION DNS DoT 
 
 # 8. Detect Longcheer FOTA/C2 Domains (DNS)
 alert dns $HOME_NET any -> any any (msg:"PROJECT-LION Longcheer FOTA/C2 Domain Resolution"; dns.query; content:"|2e|longcheer|2e|com|"; nocase; content:"|2e|svcmot|2e|com|"; nocase; content:"|2e|apeccloud|2e|com|"; nocase; classtype:trojan-activity; sid:1000008; rev:1; metadata:created_at 2026_08_20, author Alexis Michel De La Cruz Correa;)   
+
+# 8a. Detect Longcheer Domain
+alert dns $HOME_NET any -> any any (msg:"PROJECT-LION Longcheer FOTA/C2 Domain Resolution"; dns.query; content:"longcheer.com"; nocase; classtype:trojan-activity; sid:1000008; rev:1;)
+
+# 8b. Detect Svcmot Domain
+alert dns $HOME_NET any -> any any (msg:"PROJECT-LION Svcmot C2 Domain Resolution"; dns.query; content:"svcmot.com"; nocase; classtype:trojan-activity; sid:1000009; rev:1;)
+
+# 8c. Detect Apeccloud Domain
+alert dns $HOME_NET any -> any any (msg:"PROJECT-LION Apeccloud C2 Domain Resolution"; dns.query; content:"apeccloud.com"; nocase; classtype:trojan-activity; sid:1000010; rev:1;)   
