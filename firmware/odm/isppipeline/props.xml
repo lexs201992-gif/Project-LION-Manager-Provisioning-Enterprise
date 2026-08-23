@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+     SPDX-FileCopyrightText: 2022-2023 Unisoc (Shanghai) Technologies Co., Ltd
+     SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+
+     Copyright 2022-2023 Unisoc (Shanghai) Technologies Co., Ltd.
+     Licensed under the Unisoc General Software License, version 1.0 (the License);
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+     https://www.unisoc.com/en_us/license/UNISOC_GENERAL_LICENSE_V1.0-EN_US
+     Software distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OF ANY KIND, either express or implied.
+     See the Unisoc General Software License, version 1.0 for more details.
+-->
+<Props>
+ <group>
+  <name>Capture</name>
+  <Prop name="persist.vendor.cam.icap.dump">1</Prop>
+  <Prop name="persist.vendor.cam.afl.bypass">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.jpeg.enable">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.sensor.raw.enable">0</Prop>
+  <Prop name="persist.vendor.cam.iss.enable">1</Prop>
+  <Prop name="persist.vendor.cam.raw.mode">jpg</Prop>
+  <Prop name="persist.sys.cam.iss.mode">0</Prop>
+ </group>
+ <group>
+  <name>Preview</name>
+  <Prop name="persist.vendor.cam.icap.dump">1</Prop>
+  <Prop name="persist.vendor.cam.afl.bypass">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.jpeg.enable">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.sensor.raw.enable">0</Prop>
+  <Prop name="persist.vendor.cam.iss.enable">1</Prop>
+  <Prop name="persist.vendor.cam.raw.mode">jpg</Prop>
+  <Prop name="persist.sys.cam.iss.mode">0</Prop>
+ </group>
+ <group>
+  <name valid="0,1">UltraRes</name>
+  <Prop name="persist.vendor.cam.icap.dump">1</Prop>
+  <Prop name="persist.vendor.cam.afl.bypass">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.jpeg.enable">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.sensor.raw.enable">0</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.dcam.raw.enable">0</Prop>
+  <Prop name="persist.vendor.cam.iss.enable">1</Prop>
+  <Prop name="persist.vendor.cam.raw.mode">jpg</Prop>
+  <Prop name="persist.sys.cam.iss.mode">30</Prop>
+ </group>
+ <group>
+  <name>NightPro</name>
+  <Prop name="persist.vendor.cam.icap.dump">1</Prop>
+  <Prop name="persist.vendor.cam.afl.bypass">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.jpeg.enable">1</Prop>
+  <Prop name="persist.vendor.cam.icap.dump.sensor.raw.enable">0</Prop>
+  <Prop name="persist.vendor.cam.iss.enable">1</Prop>
+  <Prop name="persist.vendor.cam.raw.mode">jpg</Prop>
+  <Prop name="persist.sys.cam.iss.mode">53</Prop>
+ </group>
+</Props>
