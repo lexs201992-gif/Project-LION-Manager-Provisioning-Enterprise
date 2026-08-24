@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!--SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+    SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0 -->
+<!-- support shutdown detect, SR.599.001866.006639 -->
+
+<config>
+    <scene name="shutdown">
+        <Shutdown main_on="1" timeout_val="0x5AFF"/>
+    </scene>
+</config>
+
