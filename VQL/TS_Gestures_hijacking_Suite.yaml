@@ -1,0 +1,36 @@
+// Project LION: Full TS Gestures Detection Suite
+
+// 1. Detect tf_exclude_apps in Settings.Secure
+LET watchlist = SELECT Line 
+FROM read_file(filename='/data/system/settings_secure.xml')
+WHERE Line CONTAINS 'tf_exclude_apps'
+
+// 2. Detect com.ts.tsgestures process
+LET process = SELECT Pid, Name, CommandLine 
+FROM pslist() 
+WHERE Name CONTAINS 'tsgestures'
+
+// 3. Detect com.longcheer.sidebar process
+LET sidebar = SELECT Pid, Name, CommandLine 
+FROM pslist() 
+WHERE Name CONTAINS 'longcheer.sidebar'
+
+// 4. Detect com.longcheer.SarControl process
+LET sarcontrol = SELECT Pid, Name, CommandLine 
+FROM pslist() 
+WHERE Name CONTAINS 'SarControl'
+
+// 5. Check for pm disable attempts (kill-switch trigger)
+LET disable_attempts = SELECT Line 
+FROM read_file(filename='/data/system/packages.xml')
+WHERE Line CONTAINS 'com.ts.tsgestures'
+  AND Line CONTAINS 'disabled'
+
+SELECT
+    'PROJECT-LION: TS Gestures Backdoor Detected' AS Alert,
+    watchlist.Line AS Watchlist,
+    process.Pid AS Process_Pid,
+    sidebar.Pid AS Sidebar_Pid,
+    sarcontrol.Pid AS SarControl_Pid,
+    disable_attempts.Line AS Disable_Attempt
+FROM watchlist   
