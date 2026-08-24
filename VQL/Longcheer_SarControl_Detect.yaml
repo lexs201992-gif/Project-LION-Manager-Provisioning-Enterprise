@@ -1,0 +1,10 @@
+// Project LION: Detect Longcheer SarControl process (exempt from LMKD)
+SELECT
+    Pid,
+    Name,
+    CommandLine,
+    Cwd,
+    'PROJECT-LION: Longcheer SarControl Process Detected' AS Alert
+FROM pslist()
+WHERE Name IN ('com.longcheer.SarControl')
+  OR CommandLine CONTAINS 'com.longcheer.SarControl'   
