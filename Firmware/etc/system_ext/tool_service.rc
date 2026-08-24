@@ -1,0 +1,4 @@
+service tool_service /system_ext/bin/tool_service
+    class main
+    user root
+    group system media_rw sdcard_rw everybody readproc
