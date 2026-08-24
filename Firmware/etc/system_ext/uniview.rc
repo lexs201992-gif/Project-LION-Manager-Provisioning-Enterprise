@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+
+## Service definition
+service uniview /system_ext/bin/uniview
+    class main
+    user root
+    group root system log readproc sdcard_r sdcard_rw media_rw cache
+
+on post-fs-data
+    mkdir /data/uniview 0775 system system encryption=None
+    mkdir /data/uniview/logs 0775 system system
+    mkdir /data/uniview/logs/tmp 0775 system system
+    restorecon_recursive /data/uniview
+
+on property:persist.sys.unievent.enabled=1
+    chmod 0660 /dev/userlog_point
+    chown system system /dev/userlog_point
+    mkdir /blackbox/uniview 0770 root system
+    start uniview
+
+on property:persist.sys.unievent.enabled=0
+    stop uniview
+
+on property:ro.bootmode=charger
+    setprop persist.sys.unievent.enabled 1
