@@ -30,6 +30,10 @@ The `software channel amxmx` (América Móvil / Mexico) combined with multi-nati
 | **`main_on="1"`** | **Habilitado** | El feature está **activo** |
 | **`seclabel u:object_r:shutdown_detect_log_exec:s0`** | **SELinux context** | **Control de acceso** al binary |
 
+** `build.prop` ** 
+U-Boot logs:  27196E386B8752
+build.prop:   27196E386B875E76ADF700E7EA84E4C6EEE33DFA   
+
 ## Anonymization Note
 
 Sensitive proxy/portal URLs in APN configurations have been **redacted** to protect C2 IOCs until blocked by CISA/Motorola.
