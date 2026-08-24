@@ -1,0 +1,18 @@
+// Project LION: Detect modified com.android.traceur with Unisoc injection
+SELECT
+    'PROJECT-LION: Modified Traceur Exfiltration Agent Detected' AS Alert,
+    Path,
+    Size,
+    Mtime
+FROM glob(globs='/system/priv-app/Traceur/Traceur.apk,
+              /system/app/Traceur/Traceur.apk')
+WHERE Size > 500000  -- Modified APKs are larger due to injected code
+
+// Check for Unisoc classes in extracted DEX
+SELECT
+    'PROJECT-LION: Unisoc SettingsLib Injected in Traceur' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/data/local/tmp/traceur_decompiled/classes.dex')
+WHERE Line CONTAINS 'com.unisoc.settingslib'
+  OR Line CONTAINS 'UniSettingsLibComponentFactory'
+  OR Line CONTAINS 'getMacAddressInstance'   
