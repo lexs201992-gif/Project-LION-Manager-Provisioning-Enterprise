@@ -1,0 +1,9 @@
+# Copyright (c) 2022, Motorola Mobility LLC, All Rights Reserved.
+
+service motoproxyd /system/bin/motoproxyd
+    seclabel u:r:motoproxyd:s0
+    capabilities NET_RAW
+    class core
+    user system
+    group system
+    disabled
