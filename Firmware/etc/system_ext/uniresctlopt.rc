@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+#
+# Copyright 2016-2023 Unisoc(Shanghai) Technologies Co., Ltd.
+# Licensed under the Unisoc General Software License, version 1.0(the License);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.unisoc.com/en_us/license/UNISOC_GENERAL_LICENSE-V1.0-EN_US
+# Software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OF ANY KIND, either express or implied.
+# See the Unisoc General Software License, version 1.0 for more details.
+
+
+on property:sys.boot_completed=1 && property:persist.sys.fw_resctl.sched.vip_sched.enabled=true
+  restart uniresctlopt
+
+# SR.000989.012137 SR.000989.007435
+service uniresctlopt /system_ext/bin/uniresctlopt
+    class main
+    user system
+    group system
+    oneshot
+    capabilities SYS_NICE
+    task_profiles HighPerformance MaxIoPriority TimerSlackNormal
