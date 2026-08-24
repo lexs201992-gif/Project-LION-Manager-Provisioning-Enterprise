@@ -1,0 +1,24 @@
+// Project LION: Detect slogmodem and modem logging
+SELECT
+    'PROJECT-LION: slogmodem Daemon Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'slogmodem'
+
+// Detect /data/oppo in non-OPPO firmware
+SELECT
+    'PROJECT-LION: /data/oppo in Unisoc Firmware' AS Alert,
+    Path,
+    Mode
+FROM glob(globs='/data/oppo')
+WHERE Mode CONTAINS '0777'
+
+// Detect modem log streams
+SELECT
+    'PROJECT-LION: Modem Log Stream Configured' AS Alert,
+    Line AS Stream
+FROM read_file(filename='/vendor/etc/slog_modem.conf')
+WHERE Line CONTAINS 'stream'
+  AND Line CONTAINS 'on'   
