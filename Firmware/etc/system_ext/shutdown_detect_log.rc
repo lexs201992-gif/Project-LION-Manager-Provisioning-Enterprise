@@ -1,0 +1,17 @@
+#
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+#
+
+on property:sys.boot_completed=1 && property:ro.debuggable=1
+    setprop sys.feature.shutdown.detect.log boot_sucess
+
+on property:sys.feature.shutdown.detect.log=boot_sucess
+    chown root system /proc/shutdown_detect
+    chmod 777 /system_ext/bin/shutdown_detect_log
+    exec u:object_r:shutdown_detect_log_exec:s0 system system -- /system_ext/bin/shutdown_detect_log
+
+service shutdown_detect_log /system_ext/bin/shutdown_detect_log
+    class main
+    oneshot
+
