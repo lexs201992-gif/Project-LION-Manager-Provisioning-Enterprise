@@ -1,0 +1,24 @@
+// Project LION: Detect nhMonitorService and stability directory
+SELECT
+    'PROJECT-LION: nhMonitorService Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'nhMonitorService'
+
+// Detect hidden stability directory
+SELECT
+    'PROJECT-LION: Hidden .stability Directory Detected' AS Alert,
+    Path,
+    Mode,
+    Size
+FROM glob(globs='/data/local/.stability/*')
+WHERE Size > 0
+
+// Detect /proc/monitor_enable state
+SELECT
+    'PROJECT-LION: Native Hang Monitor Enabled' AS Alert,
+    Line AS State
+FROM read_file(filename='/proc/monitor_enable')
+WHERE Line CONTAINS 'on'   
