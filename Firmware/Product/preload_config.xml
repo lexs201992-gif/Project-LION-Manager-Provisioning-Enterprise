@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <region name="EMEA">
+        <path>MotoFeedback</path>
+        <path include="timit,3gb">MDIP</path>
+        <path>ChromeHomePageProviderMoto</path>
+        <path exclude ="reteu,oraeu">PartnerBookmarksProviderMoto</path>
+        <path include ="reteu,oraeu">PartnerBookmarksProviderGms</path>
+        <path exclude="retgb,timit">ChromeHomePageProviderMotoOverlay</path>
+        <path exclude="retgb,timit">PartnerBookmarksProviderMotoOverlay</path>
+        <path include="retgb,o2gb">ChromeHomePageProviderMotoOverlay_retgb</path>
+        <path include="timit">ChromeHomePageProviderMotoOverlay_timit</path>
+        <path include="retgb">PartnerBookmarksProviderMotoOverlay_retgb</path>
+        <path include="o2gb">PartnerBookmarksProviderMotoOverlay_o2gb</path>
+        <path include="timit">PartnerBookmarksProviderMotoOverlay_timit</path>
+        <path include="oraeu">AppCenter</path>
+        <path include="oraeu">OrangeManualSelector</path>
+        <path exclude="reteu,timit,vfeu,oraeu">DreamFMRadio</path>
+        <path>MotoHelp</path>
+        <path include="timit">Satispay</path>
+        <path include="retru,retgb,teleu,reteu,retmea">IronSource</path>
+        <path include="retgb,reteu,o2gb,timit,vfeu,oraeu,pluspl">SearchSelector</path>
+        <path>GmsSampleIntegration</path>
+        <path>facebook</path>
+        <path>InmobiInstaller</path>
+        <path include="reteu,retgb,teleu,o2gb,3gb,timit,pluspl,vfeu,tefes,oraeu,eegb">MotorolaIgniteAgent</path>
+        <path include="reteu,oraeu">AppEnabler</path>
+        <path include="windit,3gb">AppCloud</path>
+        <path include="reteu,oraeu,altice,bouyfr,openeu,reteu2">MotoSpaces</path>
+        <path include="retgb,3gb,o2gb,reteu,oraeu,pluspl,timit,teleu,tesco,playpl,yoigo,retru,retmea,vfeu,dteu">Taboola</path>
+        <path>GameMode</path>
+    </region>
+
+    <region name="LATAM">
+        <path>MotoFeedback</path>
+    	<path include="attmx,amxmx">MDIP</path>
+        <path>DreamFMRadio</path>
+        <path include="retbr,amxbr,tefbr,timbr">MotoGlance</path>
+        <path include="amxla,amxar,amxbr,retbr,amxcl,amxco,amxmx,amxpe,retar,avaco,openpub">ChromeHomePageProviderMoto</path>
+        <path include="amxla,amxar,amxbr,retbr,amxcl,amxco,amxmx,amxpe,retar,avaco,openpub">PartnerBookmarksProviderMoto</path>
+        <path exclude="amxar,amxbr,retbr,amxcl,amxla,amxpe,amxco,amxmx,openpub">PartnerBookmarksProviderGms</path>
+        <path exclude="amxcl">ChromeHomePageProviderMotoOverlay</path>
+        <path exclude="amxcl,openmx">PartnerBookmarksProviderMotoOverlay</path>
+        <path include="amxcl">ChromeHomePageProviderMotoOverlay_amxcl</path>
+        <path include="amxcl">PartnerBookmarksProviderMotoOverlay_amxcl</path>
+        <path include="openmx,altmx,avaco">PayJoyAccess</path>
+        <path exclude="attmx">MotoHelp</path>
+        <path include="amxcl,amxpe,amxco,amxla">ClaroContenedor</path>
+        <path include="amxbr,amxar">ClaroContainerStub</path>
+        <path include="amxcl,amxpe,amxco,amxla,amxmx,amxbr">instagram</path>
+        <path include="amxmx">TelcelContenedor</path>
+        <path include="amxcl,amxpe,amxco,amxmx,amxla">SysDLL</path>
+        <path include="amxar,amxcl,amxpe,amxco,amxla,amxmx,amxbr">instagram-lite-full</path>
+        <path include="retbr,tefbr,timbr,openmx">BRApps2</path>
+        <path include="retla,retar,retbr,openmx,opencl,avaco,openpe,attmx,tefbr,tefmx,tigca,timbr,altmx,openpub">MotorolaIgniteAgent</path>
+        <path include="amxcl,amxco,amxpe,amxla,amxmx,amxbr,amxar">AmericaMovilIgniteAgent</path>
+        <path include="amxcl,amxpe,amxco,amxla,amxbr">GmsSampleIntegration_full_claro</path>
+        <path include="amxmx">GmsSampleIntegration_full_telcel</path>
+        <path exclude="amxcl,amxpe,amxco,amxmx,amxla,amxbr">GmsSampleIntegration</path>
+        <path>InmobiInstaller</path>
+        <path>facebook</path>
+        <path include="retla,retar,retbr,retcl,retpe,openmx">IronSource</path>
+        <path>GameMode</path>
+        <path include="openmx,attmx,altmx,retar,opencl,openpe,avaco,openpub,retla,tigca,openla,tigco,entcl,womcl,niipe,womco,tefmx">Taboola</path>
+    </region>
+
+    <region name="APAC">
+        <path>MotoFeedback</path>
+        <path include="retjio">MyJio</path>
+        <path include="retjio,retin">MotoGlance</path>
+        <path include="retjio">JioSubsidyLock</path>
+        <path>PartnerBookmarksProviderMotoOverlay</path>
+        <path>ChromeHomePageProviderMotoOverlay</path>
+        <path exclude="optus,retapac,retjio,retin,telstra">MDIP</path>
+        <path>PartnerBookmarksProviderGms</path>
+        <path>DreamFMRadio</path>
+        <path>MotoHelp</path>
+        <path include="retapac,retjio,retin,retid,retjp,retkr,retsea">IronSource</path>
+        <path include="retjio,retin,retjin,retjioin,retapac,vfau,telstra">MotorolaIgniteAgent</path>
+        <path>GmsSampleIntegration</path>
+        <path include="retin">InmobiInstaller</path>
+        <path include="retin">SearchSelector</path>
+        <path exclude="telstra">facebook</path>
+        <path>GameMode</path>
+    </region>
+
+    <region name="unknown">
+        <path>MotoFeedback</path>
+        <path>DreamFMRadio</path>
+        <path>PartnerBookmarksProviderMotoOverlay</path>
+        <path>ChromeHomePageProviderMotoOverlay</path>
+        <path>MotoHelp</path>
+        <path>GmsSampleIntegration</path>
+        <path>InmobiInstaller</path>
+        <path>facebook</path>
+        <path>GameMode</path>
+    </region>
+</config>
