@@ -22,6 +22,21 @@ While `init.rc` sets the stage at the kernel level, the `com.ape.setupwizard` (M
     <WizardAction id="add_personal_account_after_work_profile" 
         wizard:script="android.resource://com.longcheer.android.gmsintegration/raw/wizard_script_account_flow">
     ```
+## `on property:persist.sys.longcheer.headset=0
+    write /sys/bus/i2c/drivers/aw9610x_sar/3-0012/aot_cali 1
+
+## 'on property:persist.sys.longcheer.usb=0
+    write /sys/bus/i2c/drivers/aw9610x_sar/3-0012/aot_cali 1  
+
+## wifi0.rc
+(`https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/a88bdfcd1d0aa683f28f715661e811232920a8a6/Firmware/etc/wifi0.rc`)
+| Element | Relevance |
+| :--- | :--- |
+| **`persist.sys.longcheer.*`** | **Properties persistentes** con el nombre explícito del ODM. Sobreviven a reinicios. |
+| **`aw9610x_sar`** | **AW9610X** es un chip de **touch sensor** (Awinic) usado para detección de **headset/USB** por cambio de capacitancia. |
+| **`aot_cali`** | **Always-On Touch Calibration**. Permite al chip **calibrarse continuamente** en segundo plano. |
+| **`write ... 1`** | **Activa la calibración** cada vez que cambia la propiedad `headset` o `usb`. |
+
 4.  **C2 Activation:** During the `ENTERPRISE_SETUP` or `QR_CODE_SCAN` phases, the ODM-injected components (running under `zygote_secondary`) establish connections to the C2 infrastructure (AWS, Hetzner, Cloudflare) documented in the `Dialer_splitter_c2.rules`.
 
 ### **3. The "Hydra" Effect: OTA as a Backdoor Update Vector**
