@@ -1,0 +1,6 @@
+// Detect tf_exclude_apps in Settings.Secure (Android)
+SELECT
+    'PROJECT-LION: TS Gestures Watchlist Detected' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/data/system/settings_secure.xml')
+WHERE Line CONTAINS 'tf_exclude_apps'   
