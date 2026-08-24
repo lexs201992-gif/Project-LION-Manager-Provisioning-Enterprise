@@ -30,6 +30,14 @@ While `init.rc` sets the stage at the kernel level, the `com.ape.setupwizard` (M
 
 ## wifi0.rc
 (`https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/a88bdfcd1d0aa683f28f715661e811232920a8a6/Firmware/etc/wifi0.rc`)
+
+### Hardware Telemetry IOCs
+- **Property:** `persist.sys.longcheer.headset` (0/1)
+- **Property:** `persist.sys.longcheer.usb` (0/1)
+- **Driver:** `aw9610x_sar` (AW9610X touch sensor)
+- **File:** `/etc/init/hw/wifi0.rc`
+- **Implication:** ODM monitors headset/USB connection state via persistent properties, enabling passive user behavior profiling.
+
 | Element | Relevance |
 | :--- | :--- |
 | **`persist.sys.longcheer.*`** | **Properties persistentes** con el nombre explícito del ODM. Sobreviven a reinicios. |
