@@ -1,0 +1,8 @@
+// Project LION: Detect TS Gestures watchlist in Settings.Secure
+SELECT
+    'PROJECT-LION: TS Gestures Watchlist Detected' AS Alert,
+    Value AS Targeted_Apps
+FROM registry_windows()  -- No, esto es para Windows
+-- Para Android, usar:
+FROM read_file(filename='/data/system/settings_secure.xml')
+WHERE Line CONTAINS 'tf_exclude_apps'   
