@@ -1,0 +1,18 @@
+// Project LION: Detect sysfs nodes with ODM-controlled permissions
+// Targets: pstore/ramoops, modem debug logs, CPU frequency control
+
+SELECT
+    Path,
+    Mode,
+    Owner,
+    Group,
+    'PROJECT-LION: Sysfs ODM Node Detected' AS Alert
+FROM glob(globs='/sys/fs/pstore/console-ramoops,
+              /sys/fs/pstore/console-ramoops-0,
+              /sys/fs/pstore/pmsg-ramoops-0,
+              /sys/class/modem/debug-log/channel,
+              /sys/class/modem/serdes0/channel,
+              /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor,
+              /sys/devices/system/cpu/cpu*/cpufreq/scaling_setspeed')
+WHERE Owner IN ('system', 'root')
+  AND Mode IN ('0440', '0660', '0664')   
