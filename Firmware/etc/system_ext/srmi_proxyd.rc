@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+on init
+
+on property:persist.vendor.sys.volte.enable=true
+    start srmi_proxyd
+
+on property:ro.boot.product.hardware.sku=wifionly
+    stop srmi_proxyd
+
+on property:ro.boot.product.hardware.sku=dataonly
+    stop srmi_proxyd
+
+on property:ro.boot.product.hardware.sku=dataonly_singlesim
+    stop srmi_proxyd
+
+service srmi_proxyd /system_ext/bin/srmi_proxyd
+        class main
+        disabled
+        user root
+        group system
