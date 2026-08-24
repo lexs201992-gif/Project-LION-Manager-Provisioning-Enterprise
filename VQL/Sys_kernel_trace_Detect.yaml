@@ -1,0 +1,12 @@
+// Project LION: Detect atrace.rc tracing permissions
+SELECT
+    Path,
+    Mode,
+    'PROJECT-LION: Atrace Tracing Permission Detected' AS Alert
+FROM glob(globs='/sys/kernel/debug/tracing/trace_marker,
+              /sys/kernel/tracing/trace_marker,
+              /sys/kernel/debug/tracing/trace_clock,
+              /sys/kernel/tracing/trace_clock,
+              /sys/kernel/debug/tracing/buffer_size_kb,
+              /sys/kernel/tracing/buffer_size_kb')
+WHERE Mode IN ('0666', '0222')   
