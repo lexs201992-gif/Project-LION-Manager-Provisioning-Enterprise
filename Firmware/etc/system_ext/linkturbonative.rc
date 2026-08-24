@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+service linkturbonative /system_ext/bin/linkturbonative
+    class main
+    user root
+    group system
