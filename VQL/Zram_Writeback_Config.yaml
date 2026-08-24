@@ -1,0 +1,8 @@
+// Project LION: Detect Zram Writeback configuration
+SELECT
+    'PROJECT-LION: Zram Writeback Config Detected' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/vendor/etc/init/hw/init.zramwb.rc')
+WHERE Line CONTAINS 'zram'
+  OR Line CONTAINS 'writeback'
+  OR Line CONTAINS 'swappiness'   
