@@ -1,0 +1,27 @@
+// Project LION: Detect ylog daemon and pstore exfiltration
+SELECT
+    'PROJECT-LION: ylog Daemon Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'ylog'
+
+// Detect pstore logs copied to /data/ylog
+SELECT
+    'PROJECT-LION: Pstore Logs Exfiltrated to /data/ylog' AS Alert,
+    Path,
+    Size,
+    Mtime
+FROM glob(globs='/data/ylog/lastkernel.log,
+              /data/ylog/dmesg.log,
+              /data/ylog/lastandroid.log')
+WHERE Size > 0
+
+// Detect unencrypted /data/ylog directory
+SELECT
+    'PROJECT-LION: Unencrypted /data/ylog Detected' AS Alert,
+    Path,
+    Mode
+FROM glob(globs='/data/ylog')
+WHERE Mode CONTAINS '0777'   
