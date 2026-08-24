@@ -1,0 +1,10 @@
+// ODM-Stub-Control v2: Detect SarControl + WCN correlation
+SELECT
+    'PROJECT-LION: ODM Stub Control Detected' AS Alert,
+    sar.Pid AS SarControl_Pid,
+    wcn.Path AS WCN_Device,
+    wcn.Mode AS WCN_Permissions
+FROM pslist() sar
+LEFT JOIN glob(globs='/dev/wcn_chr, /dev/wcn0, /dev/wcn1') wcn
+ON TRUE
+WHERE sar.Name CONTAINS 'SarControl'   
