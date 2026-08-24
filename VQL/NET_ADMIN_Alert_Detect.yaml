@@ -1,0 +1,14 @@
+// Project LION: Detect netd with elevated capabilities
+SELECT
+    'PROJECT-LION: netd with NET_ADMIN + DAC_READ_SEARCH' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/system/etc/init/netd.rc')
+WHERE Line CONTAINS 'NET_ADMIN'
+  AND Line CONTAINS 'DAC_READ_SEARCH'
+
+// Detect fwmarkd socket
+SELECT
+    'PROJECT-LION: fwmarkd socket detected' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/system/etc/init/netd.rc')
+WHERE Line CONTAINS 'fwmarkd'   
