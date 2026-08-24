@@ -1,0 +1,19 @@
+// Project LION: Detect cali mode services
+SELECT
+    'PROJECT-LION: Cali Mode Service Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'modem_control'
+  OR Name CONTAINS 'engpcclientlte'
+  OR Name CONTAINS 'refnotify'
+
+// Detect /data/vendor/local/mlogservice
+SELECT
+    'PROJECT-LION: Cali Log Directory Detected' AS Alert,
+    Path,
+    Size,
+    Mtime
+FROM glob(globs='/data/vendor/local/mlogservice/*')
+WHERE Size > 0   
