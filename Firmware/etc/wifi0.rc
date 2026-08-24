@@ -1,0 +1,11 @@
+on property:persist.sys.longcheer.headset=0
+    write /sys/bus/i2c/drivers/aw9610x_sar/3-0012/aot_cali 1
+
+on property:persist.sys.longcheer.headset=1
+    write /sys/bus/i2c/drivers/aw9610x_sar/3-0012/aot_cali 1
+
+on property:persist.sys.longcheer.usb=0
+    write /sys/bus/i2c/drivers/aw9610x_sar/3-0012/aot_cali 1
+
+on property:persist.sys.longcheer.usb=1
+    write /sys/bus/i2c/drivers/aw9610x_sar/3-0012/aot_cali 1
