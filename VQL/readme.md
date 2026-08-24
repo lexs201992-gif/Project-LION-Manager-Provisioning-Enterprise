@@ -20,3 +20,14 @@
    *   **Exfiltrar logs del kernel** (console-ramoops, pmsg-ramoops)
    *   **Ocultar actividad** borrando logs
    *   **Recopilar datos sensibles** de errores de kernel
+
+**`Firmware/etc/atrace.rc` (https://github.com/lexs201992-gif/Project-LION-Manager-Provisioning-Enterprise/blob/688387d49b9b82b029fe46ca550fe9f5c1eaa8dd/Firmware/etc/atrace.rc)
+
+| Sección | Hallazgo | Impacto Forense |
+| :--- | :--- | :--- |
+| **`chmod 0222 /sys/kernel/debug/tracing/trace_marker`** | **World-writable trace marker** | Permite a **cualquier proceso** inyectar marcas en el buffer de tracing del kernel |
+| **`chmod 0666 /sys/kernel/tracing/*`** | **World read/write en tracepoints** | **Acceso total** al sistema de tracing del kernel |
+| **`write /proc/sys/kernel/sched_schedstats 1`** | **Scheduler stats habilitados** | **Monitoreo de scheduling** de todos los procesos |
+| **`service boottrace /system/bin/atrace`** | **Atrace como servicio root** | **Tracing persistente** desde el boot |
+| **`on property:persist.debug.atrace.boottrace=1`** | **Trigger remoto** | El ODM puede **activar/desactivar** tracing a distancia |
+| **`write /sys/kernel/tracing/tracing_on 0`** | **Control de tracing_on** | Permite **pausar/reanudar** el tracing del kernel |
