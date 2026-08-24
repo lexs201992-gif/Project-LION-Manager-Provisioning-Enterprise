@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+service vendor.gro_on /system_ext/bin/netbox.sh gro on
+	user root
+	disabled
+	oneshot
+
+service vendor.gro_off /system_ext/bin/netbox.sh gro off
+	user root
+	disabled
+	oneshot
