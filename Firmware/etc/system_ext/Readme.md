@@ -64,7 +64,7 @@ WHERE Line CONTAINS 'longcheer'
 | File | SHA-256 |
 | :--- | :--- |
 | `sprd_networkcontrol.rc` | `[pending]` |
-| `ylog.rc` | `[pending]` |
+| `ylog.rc` | `[]` |
 | `linkturbonative.rc` | `[pending]` |
 | `srmi_proxyd.rc` | `[pending]` |
 | `init.thirdPartyprops.rc` | `[pending]` |
@@ -73,6 +73,97 @@ WHERE Line CONTAINS 'longcheer'
 | `ims_bridged.rc` | `[pending]` |
 
 ---
+
+### `ylog.rc`
+
+| Sección | Hallazgo | Impacto Forense |
+| :--- | :--- | :--- |
+| **`service ylog /system_ext/bin/ylog`** | **Daemon de logging Unisoc** | **Captura logs** del sistema para exfiltración |
+| **`user root`** | **Ejecuta como root** | **Acceso total** a todos los logs |
+| **`group everybody`** | **Grupo "everybody"** | **Permisos amplios** a múltiples procesos |
+| **`writepid /dev/cpuset/system-background/tasks`** | **Cpuset background** | **Oculto** en el cgroup de background (no visible en foreground) |
+| **`mkdir /data/ylog 0777 ... encryption=None`** | **Directorio SIN CIFRAR** | **Exfiltración directa** de logs |
+| **`chmod 0555 /sys/fs/pstore/`** | **Acceso a pstore** | **Lee logs de kernel** que sobreviven a reinicios |
+| **`copy /sys/fs/pstore/console-ramoops-0 /data/ylog/lastkernel.log`** | **Copia ramoops** | **Exfiltra logs de kernel** a `/data/ylog` |
+| **`copy /sys/fs/pstore/dmesg-ramoops-0 /data/ylog/dmesg.log`** | **Copia dmesg** | **Exfiltra dmesg** (trazas de kernel) |
+| **`copy /sys/fs/pstore/pmsg-ramoops-0 /data/ylog/lastandroid.log`** | **Copia pmsg** | **Exfiltra logs de Android** |
+| **`chmod 666 /data/ylog/*.log`** | **World-writable** | **Cualquier proceso** puede leer/los logs |
+| **`on property:persist.unipnp.standbylogcat=true`** | **Trigger remoto** | El ODM puede **activar** logging a distancia |
+| **`on property:sys.debug.fwc=*`** | **Trigger remoto** | **Activación remota** de `fwklog` |
+
+### Dangerous Application 
+
+1. **`/data/ylog` con `encryption=None`:**
+   - El directorio de logs **NO está cifrado**.
+   - **Cualquier proceso** puede leerlo.
+   - **Sobrevive a factory reset** (está en `/data` pero con `encryption=None`).
+
+2. **`chmod 0555 /sys/fs/pstore/` + `copy`:**
+   - **Lee los logs de kernel** que sobreviven a reinicios (`console-ramoops`, `dmesg-ramoops`, `pmsg-ramoops`).
+   - **Copia** esos logs a `/data/ylog/` con permisos `666` (world-writable).
+   - **El ODM puede exfiltrar** el historial completo de crashes, panics y actividad del kernel.
+
+3. **`writepid /dev/cpuset/system-background/tasks`:**
+   - El daemon `ylog` corre en el **cgroup de background**.
+   - **No consume CPU** en foreground.
+   - **Oculto** para el usuario y para la mayoría de herramientas de monitoreo.
+
+4. **Triggers remotos:**
+   - `persist.unipnp.standbylogcat=true` → **Activación remota** de logging en standby.
+   - `sys.debug.fwc=*` → **Activación remota** de `fwklog`.
+   - **El ODM puede activar/desactivar** el logging a distancia.
+
+### Conexión 
+
+```
+ylog (root, background cgroup)
+    ↓
+Lee /sys/fs/pstore/ (kernel logs que sobreviven a reinicios)
+    ↓
+Copia a /data/ylog/ (encryption=None, chmod 666)
+    ↓
+Exfiltración vía wg0 / C2
+```
+
+**`ylog` es el mecanismo de exfiltración de logs del kernel.** Combina:
+- **Acceso a pstore** (logs que sobreviven a reinicios).
+- **Directorio sin cifrar** (`encryption=None`).
+- **Permisos world-writable** (`chmod 666`).
+- **Cgroup background** (oculto).
+- **Triggers remotos** (activación a distancia).
+
+### VQL para Detección
+
+```vql
+// Project LION: Detect ylog daemon and pstore exfiltration
+SELECT
+    'PROJECT-LION: ylog Daemon Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'ylog'
+
+// Detect pstore logs copied to /data/ylog
+SELECT
+    'PROJECT-LION: Pstore Logs Exfiltrated to /data/ylog' AS Alert,
+    Path,
+    Size,
+    Mtime
+FROM glob(globs='/data/ylog/lastkernel.log,
+              /data/ylog/dmesg.log,
+              /data/ylog/lastandroid.log')
+WHERE Size > 0
+
+// Detect unencrypted /data/ylog directory
+SELECT
+    'PROJECT-LION: Unencrypted /data/ylog Detected' AS Alert,
+    Path,
+    Mode
+FROM glob(globs='/data/ylog')
+WHERE Mode CONTAINS '0777'
+```
+
 
 **Author:** Alexis Michel De La Cruz Correa (lexs201992-gif)
 **Project:** LION – Longcheer/Unisoc Supply Chain Compromise
