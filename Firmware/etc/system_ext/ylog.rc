@@ -1,0 +1,99 @@
+# SPDX-FileCopyrightText: 2016-2023 Unisoc (Shanghai) Technologies Co., Ltd
+# SPDX-License-Identifier: LicenseRef-Unisoc-General-1.0
+
+service ylog /system_ext/bin/ylog
+    class main
+    user root
+    group system media_rw sdcard_rw everybody cache
+    disabled
+    writepid /dev/cpuset/system-background/tasks
+
+service fwklog /system_ext/bin/fwkreboot.sh
+    class main
+    user root
+    group system
+    disabled
+    oneshot
+
+service poweronlog /system_ext/bin/poweronlog.sh
+    class main
+    user root
+    group system cache
+    oneshot
+    disabled
+
+service logcatAKlog /system_ext/bin/logcatAKlog.sh
+    class main
+    user root
+    group system media_rw sdcard_rw everybody
+    disabled
+    oneshot
+
+service standbylogcat /system_ext/bin/standbylogcat.sh
+    class main
+    user root
+    group system media_rw sdcard_rw everybody
+    disabled
+    oneshot
+
+service dumpInfo /system_ext/bin/logcatAKlog.sh --dumpinfo
+    class main
+    user root
+    group system media_rw sdcard_rw everybody
+    disabled
+    oneshot
+
+service stabilitylog /system_ext/bin/logcatAKlog.sh --stabilitylog
+    class main
+    user root
+    group system media_rw sdcard_rw everybody
+    disabled
+    oneshot
+
+on post-fs-data
+    mkdir /cache/ylog 0777 system system
+    mkdir /data/ylog 0777 system system encryption=None
+    mkdir /data/ylog/dropbox 0777 system system
+    mkdir /data/log 0777 system system
+    mkdir /data/ylog/hprofs 0777 system system
+    mkdir /data/ylog/dynamiclog 0777 system system
+    chmod 0555 /sys/fs/pstore/
+    chmod 0555 /sys/fs/pstore/console-ramoops-0
+    chmod 0555 /sys/fs/pstore/dmesg-ramoops-0
+    chmod 0555 /sys/fs/pstore/pmsg-ramoops-0
+    copy /sys/fs/pstore/console-ramoops-0 /data/ylog/lastkernel.log
+    copy /sys/fs/pstore/dmesg-ramoops-0 /data/ylog/dmesg.log
+    copy /sys/fs/pstore/pmsg-ramoops-0 /data/ylog/lastandroid.log
+    chmod 666 /data/ylog/lastkernel.log
+    chown system system /data/ylog/lastkernel.log
+    chmod 666 /data/ylog/dmesg.log
+    chown system system /data/ylog/dmesg.log
+    chmod 666 /data/ylog/lastandroid.log
+    chown system system /data/ylog/lastandroid.log
+    start ylog
+
+on property:init.svc.logd=running
+    mkdir /cache/ylog 0777 system system
+    mkdir /blackbox/ylog 0770 root system
+    start ylog
+#    start poweronlog
+
+on property:sys.debug.fwc=*
+    start fwklog
+
+on property:sys.debug.logbuffer.path=*
+    start logcatAKlog
+
+on property:persist.unipnp.standbylogcat=true
+    start standbylogcat
+
+on property:sys.debug.dumpinfo.type=* && property:ro.debuggable=1
+    start dumpInfo
+
+on property:sys.debug.stabilitylog.path=*
+    start stabilitylog
+
+on early-init
+    mkdir /dev/socket/ylog 0755 system system
+
+
