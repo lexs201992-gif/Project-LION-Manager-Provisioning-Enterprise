@@ -1,0 +1,15 @@
+// Project LION: Detect data_rps services and lockfreq
+SELECT
+    'PROJECT-LION: data_rps Service Detected' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/system/system_ext/etc/init/data_rps.rc')
+WHERE Line CONTAINS 'lockfreq'
+  OR Line CONTAINS 'rps'
+  OR Line CONTAINS 'sfp'
+
+// Detect lockfreq state
+SELECT
+    'PROJECT-LION: CPU Frequency Locked' AS Alert,
+    Line AS State
+FROM read_file(filename='/proc/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor')
+WHERE Line CONTAINS 'performance'   
