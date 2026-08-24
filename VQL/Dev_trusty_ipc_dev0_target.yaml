@@ -1,0 +1,18 @@
+// Project LION: Detect critical kernel device nodes with system UID
+// Targets: TEE, RPMB, GNSS, Camera ISP (from ueventd.rc analysis)
+
+SELECT
+    Path,
+    Mode,
+    Owner,
+    Group,
+    'PROJECT-LION: Critical Kernel Node Detected' AS Alert
+FROM glob(globs='/dev/trusty-ipc-dev0,
+              /dev/rpmb0,
+              /dev/block/by-name/gnssmodem_a,
+              /dev/block/by-name/gnssmodem_b,
+              /dev/sprd_isp,
+              /dev/sprd_sensor,
+              /dev/dma_heap/protected')
+WHERE Owner IN ('system', 'root')
+  AND Mode IN ('0660', '0666', '0440')   
