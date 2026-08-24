@@ -1,0 +1,19 @@
+// Project LION: Detect UDP 443 connections to known C2 IPs (QUIC)
+SELECT
+    Pid,
+    Name,
+    LocalAddress,
+    RemoteAddress,
+    RemotePort,
+    'PROJECT-LION: QUIC/UDP 443 C2 Connection Detected' AS Alert
+FROM netstat()
+WHERE RemotePort = 443
+  AND Protocol IN ('UDP')
+  AND RemoteAddress IN (
+    '13.224.125.70',
+    '84.212.60.182',
+    '52.36.161.184',
+    '172.67.214.246',
+    '172.67.70.25'
+  )
+  OR RemoteAddress GLOB '142.104.2.*'   
