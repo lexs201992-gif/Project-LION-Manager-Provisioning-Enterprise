@@ -1,0 +1,55 @@
+on property:persist.nhmonitor.enable=off
+    write /proc/monitor_enable "off"
+
+on property:debug.nhmonitor.enable=off
+    write /proc/monitor_enable "off"
+
+on property:persist.nhmonitor.enable=on && property:sys.nhmonitor.bootmode.allow=true
+    write /proc/monitor_enable "on"
+
+
+service nhmonitor /system_ext/bin/nhMonitorService
+    class late_start 
+    user system
+    group system root 
+    seclabel u:r:system_server:s0
+    oneshot
+
+service nhmonitor_logcat /system_ext/bin/nhMonitorService -l -t 120
+    class late_start 
+    user root
+    group system root
+    seclabel u:r:dumpstate:s0
+    oneshot
+    disabled
+
+service nhmonitor_dmesg /system_ext/bin/nhMonitorService -d -t 120
+    class late_start 
+    user root
+    group system root
+    seclabel u:r:dumpstate:s0
+    oneshot
+    disabled
+
+#for selinux neverallow, we can't user logwrapper -k logcat directly.
+# so still output logcat to kmsg by nhMonitorService
+service nhmonitor_l2k /system_ext/bin/nhMonitorService -k
+    class late_start 
+    user root
+    group system root
+    seclabel u:r:dumpstate:s0
+    oneshot
+    disabled
+
+
+on early-fs
+    chown system system /dev/native_hang_monitor
+    chown system system /proc/monitor_enable
+
+on property:debug.nhmonitor.sysdump=on
+    setprop vendor.debug.sysdump.enabled true
+    setprop persist.vendor.eng.reset  0
+
+on post-fs-data
+    mkdir /data/local/.stability/ 0777 system system
+
