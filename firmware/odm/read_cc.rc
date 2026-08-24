@@ -1,0 +1,54 @@
+
+service read_cc /vendor/bin/read_cc
+    user root
+    group system
+    oneshot
+    disabled
+
+on init && property:ro.boot.carrier=*
+    start read_cc
+
+on property:vendor.fingerprint.init=Ready
+    write /proc/bootprof "set ro vendor fingerprint"
+    setprop ro.odm.build.fingerprint ${vendor.fingerprint.temp}
+
+
+
+
+on property:persist.sys.auto.brightness=2
+   write /sys/class/backlight/sprd_backlight/brightness 255
+on property:persist.sys.auto.brightness=1
+   write /sys/class/backlight/sprd_backlight/brightness 183
+on property:persist.sys.auto.brightness=0
+   write /sys/class/backlight/sprd_backlight/brightness 153
+
+on property:persist.sys.overcharge.protection=0
+   write /sys/class/power_supply/battery/charger.0/stop_charge 0
+on property:persist.sys.overcharge.protection=1
+   write /sys/class/power_supply/battery/charger.0/stop_charge 1
+
+on property:ro.boot.sku=1
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04"
+on property:ro.boot.sku=2
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04"
+on property:ro.boot.sku=3
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04"
+on property:ro.boot.sku=4
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04"
+on property:ro.boot.sku=5
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04"
+on property:ro.boot.sku=6
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04"
+on property:ro.boot.sku=7
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04s"
+on property:ro.boot.sku=8
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04s"
+on property:ro.boot.sku=9
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04s"
+on property:ro.boot.sku=10
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04s"
+on property:ro.boot.sku=11
+   write /config/usb_gadget/g1/strings/0x409/product "moto g04s"
+
+on property:persist.sys.ps_operation=1 && sys.boot_completed=1
+   write /sys/class/sprd_sensorhub/sensor_hub/ps_operation "8 1"
