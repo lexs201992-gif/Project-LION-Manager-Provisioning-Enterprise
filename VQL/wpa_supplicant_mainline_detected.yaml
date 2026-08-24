@@ -1,0 +1,17 @@
+// Project LION: Detect wpa_supplicant_mainline with NET_RAW + NET_ADMIN
+SELECT
+    'PROJECT-LION: wpa_supplicant_mainline with NET_RAW+NET_ADMIN' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'wpa_supplicant_mainline'
+
+// Detect GNSS socket in wpa_supplicant
+SELECT
+    'PROJECT-LION: GNSS Socket in wpa_supplicant' AS Alert,
+    Line AS Evidence
+FROM read_file(filename='/system/vendor/odm/etc/mainline_supplicant.rc')
+WHERE Line CONTAINS '-g@android:wpa_wlan0'
+  OR Line CONTAINS 'NET_RAW'
+  OR Line CONTAINS 'NET_ADMIN'   
