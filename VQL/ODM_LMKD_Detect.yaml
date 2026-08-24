@@ -1,0 +1,8 @@
+// Project LION: Detect ODM processes exempt from LMKD
+SELECT
+    Line,
+    'PROJECT-LION: ODM Process Exempt from LMKD' AS Alert
+FROM read_file(filename='/system/vendor/etc/lmkd_param.conf')
+WHERE Line CONTAINS 'com.longcheer'
+  OR Line CONTAINS 'com.spreadtrum'
+  OR Line CONTAINS 'com.unisoc'   
