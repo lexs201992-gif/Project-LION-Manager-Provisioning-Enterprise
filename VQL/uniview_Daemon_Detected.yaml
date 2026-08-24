@@ -1,0 +1,25 @@
+// Project LION: Detect uniview daemon and unencrypted directory
+SELECT
+    'PROJECT-LION: uniview Daemon Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'uniview'
+
+// Detect unencrypted /data/uniview
+SELECT
+    'PROJECT-LION: Unencrypted /data/uniview Detected' AS Alert,
+    Path,
+    Mode
+FROM glob(globs='/data/uniview')
+WHERE Mode CONTAINS '0775'
+
+// Detect /dev/userlog_point
+SELECT
+    'PROJECT-LION: /dev/userlog_point Detected' AS Alert,
+    Path,
+    Mode,
+    Owner
+FROM glob(globs='/dev/userlog_point')
+WHERE Owner = 'system'   
