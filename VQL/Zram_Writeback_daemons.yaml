@@ -1,0 +1,17 @@
+// Project LION: Detect Zram Writeback daemons
+SELECT
+    'PROJECT-LION: Zram Writeback Daemon Detected' AS Alert,
+    Pid,
+    Name,
+    CommandLine
+FROM pslist()
+WHERE Name CONTAINS 'zramwb'
+  OR Name CONTAINS 'swappiness'
+  OR Name CONTAINS 'idlefast'
+
+// Detect writeback limit
+SELECT
+    'PROJECT-LION: Zram Writeback Limit Active' AS Alert,
+    Line AS Value
+FROM read_file(filename='/sys/block/zram0/writeback_limit')
+WHERE Line != '0'   
