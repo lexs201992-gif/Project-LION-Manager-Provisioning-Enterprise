@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <app name="MDIP">
+        <!-- MDIP preload in italy(TIM):22201 and Mexico(AT&T)  Mexico(AT&T) mccmnc:334050,334070,334090 Australia Vodafone(VHA):50503 -->
+        <inMccmnc>334020,334050,334070,334090,22201,50503</inMccmnc>
+        <isNeed>true</isNeed>
+    </app>
+    <app name="DreamFMRadio">
+        <!-- DreamFMRadio is not preload in france:208 and italy:222 -->
+        <inCountry>208,222</inCountry>
+        <isNeed>false</isNeed>
+    </app>
+    <app name="InmobiInstaller">
+        <!-- InmobiInstaller is not preload in Ukraine:255,Croatia:219,Montenegro:297,Macedonia:294,Greece:202,Czech:230,Hungary:216,
+        Moldova:259,Tunisia:605,Kazakhstan:401,South Africa:655,Australia:505,New Zealand:530,Bangladesh:470,Sri Lanka:413,Nepal:429 -->
+        <inCountry>255,219,297,202,230,216,294,259,605,401,655,505,530,470,413,429</inCountry>
+        <isNeed>false</isNeed>
+    </app>
+    <app name="AppEnabler">
+        <!-- AppEnabler preload in DT DE\PL\NL\GR\CZ\AT\HU\HR\ME\RS\SK\RO\MK\AL mccmnc:26201,26002,20416,20201,23001,23203,21630,21901,29702,22004,23102,22603,29401 -->
+        <inMccmnc>26201,26002,20416,20201,23001,23203,21630,21901,29702,22004,23102,22603,22606,29401,27601</inMccmnc>
+        <isNeed>true</isNeed>
+    </app>
+    <app name="AppCenter">
+        <!-- add for EKLION-10145 -->
+        <inCountry>26003,20801,22610,21403,20610,23101,27099</inCountry>
+        <isNeed>true</isNeed>
+    </app>
+    <app name="OrangeManualSelector">
+        <inCountry>20801,22610,21403,26003,20610,23101,27099</inCountry>
+        <isNeed>true</isNeed>
+    </app>
+    <app name="IronSource">
+        <!-- add for EKLION-10145 -->
+        <inCountry>26003</inCountry>
+        <isNeed>false</isNeed>
+    </app>
+</config>
