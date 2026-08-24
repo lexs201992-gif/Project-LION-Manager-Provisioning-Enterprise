@@ -1,0 +1,9 @@
+#line 1 "out_odm/soong/.intermediates/system/sepolicy/contexts/odm_property_contexts/android_common/gen/namespace_checked/device/sprd/vnd_sepolicy/odm/property_contexts"
+ro.odm.build.display.id            u:object_r:vendor_sys_prop:s0 exact string
+ro.odm.build.description           u:object_r:vendor_sys_prop:s0 exact string
+
+#For OTA
+ro.odm.ab_ota_partitions u:object_r:vendor_ota_prop:s0 exact string
+persist.vendor.fingerprint u:object_r:vendor_sys_prop:s0 exact string
+
+persist.vendor.fpc.debug.level u:object_r:vendor_sys_prop:s0 exact string
