@@ -1,0 +1,8 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:settings="http://schemas.android.com/apk/res-auto" android:title="@0x7f130920" app:r0x7f0402a7="@0x7f130ac8">
+    <Preference android:title="@0x7f130920" android:key="os_firmware_version" android:summary="@0x7f13147e" app:r0x7f04014d="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController" app:r0x7f0401b3="true" app:r0x7f040434="false"/>
+    <Preference android:title="@0x7f1311dd" android:key="security_key" app:r0x7f04014d="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController" app:r0x7f0401b3="true"/>
+    <Preference android:title="@0x7f130d9d" android:key="module_version" android:summary="@0x7f13147e" app:r0x7f04014d="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController" app:r0x7f0401b3="true"/>
+    <Preference android:title="@0x7f130311" android:selectable="false" android:key="base_band" android:summary="@0x7f13147e" app:r0x7f04014d="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController" app:r0x7f0401b3="true"/>
+    <Preference android:title="@0x7f130aa7" android:selectable="false" android:key="kernel_version" android:summary="@0x7f13147e" app:r0x7f04014d="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController" app:r0x7f0401b3="true"/>
+    <Preference android:title="@0x7f1304f0" android:selectable="false" android:key="os_build_number" android:summary="@0x7f13147e" app:r0x7f04014d="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController" app:r0x7f0401b3="true"/>
+</PreferenceScreen>
