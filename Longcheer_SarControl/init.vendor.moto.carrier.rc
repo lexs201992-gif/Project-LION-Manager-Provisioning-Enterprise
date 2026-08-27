@@ -1,0 +1,122 @@
+on property:ro.boot.carrier=*
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-motorola-rvo3
+   setprop ro.com.google.clientidbase.vs android-motorola-rvo3
+
+on property:persist.sys.channel_id=amxbr
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+
+on property:ro.boot.carrier=amxcl
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+
+on property:ro.boot.carrier=amxco
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+
+on property:ro.boot.carrier=amxla
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+
+on property:ro.boot.carrier=amxmx
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+   setprop ro.csc.amazon.partnerid telcelmx
+
+on property:ro.boot.carrier=amxpe
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+
+on property:ro.boot.carrier=attmx
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-attmexico-mx-rvc3
+   setprop ro.com.google.clientidbase.vs android-attmexico-mx-rvc3
+   setprop ro.csc.amazon.partnerid att
+
+on property:ro.boot.carrier=oraeu
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-orange-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-orange-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-orange-{country}
+   setprop ro.com.google.clientidbase.cr android-motorola
+
+on property:ro.boot.carrier=telstra
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-telstra-au-rvc2
+   setprop ro.com.google.clientidbase.vs android-telstra-au-rvc2
+   setprop ro.com.google.clientidbase.am android-telstra-au
+   setprop ro.com.google.clientidbase.wal android-telstra-au
+
+on property:ro.boot.carrier=optus
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-optus-au-rvc3
+   setprop ro.com.google.clientidbase.vs android-optus-au-rvc3
+   setprop ro.com.google.clientidbase.am android-optus-au
+
+# modify by huanghaodong for EKSABAHL-803 start
+on property:ro.boot.carrier=*
+   setprop ro.oem.key1 ${ro.carrier}
+# modify by huanghaodong for EKSABAHL-803 end
+
+on property:ro.boot.carrier=timit
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-tim-it-rvc3
+   setprop ro.com.google.clientidbase.vs android-tim-it-rvc3
+   setprop ro.com.google.clientidbase.cr android-motorola
+   setprop ro.csc.amazon.partnerid timit
+
+on property:ro.boot.carrier=vfeu
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-vf-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-vf-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-vf-{country}
+   setprop ro.com.google.clientidbase.cr android-motorola
+
+on property:ro.boot.carrier=o2gb
+   setprop ro.com.google.clientidbase android-motorola
+# modify for [EKLION-10735] begin
+   setprop ro.com.google.clientidbase.ms android-tef-{country}-rvc2
+   setprop ro.com.google.clientidbase.vs android-tef-{country}-rvc2
+# modify for [EKLION-10735] end
+   setprop ro.com.google.clientidbase.am android-tef-{country}
+   setprop ro.com.google.clientidbase.cr android-motorola
+
+on property:ro.boot.carrier=vfau
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-vf-au-rvc3
+   setprop ro.com.google.clientidbase.vs android-vf-au-rvc3
+   setprop ro.com.google.clientidbase.am android-vf-au
+   setprop ro.csc.amazon.partnerid vfau
+
+on property:persist.sys.channel_id=amxar
+   setprop ro.com.google.clientidbase.ms android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-americamovil-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-americamovil-{country}
+
+on property:ro.boot.carrier=3gb
+   setprop ro.csc.amazon.partnerid att
+
+on property:persist.sys.channel_id=vfeu
+   setprop ro.com.google.clientidbase android-motorola
+   setprop ro.com.google.clientidbase.ms android-vf-{country}-rvc3
+   setprop ro.com.google.clientidbase.vs android-vf-{country}-rvc3
+   setprop ro.com.google.clientidbase.am android-vf-{country}
+   setprop ro.com.google.clientidbase.cr android-motorola
+
+on property:ro.boot.carrier=eegb
+   setprop ro.com.google.clientidbase.ms android-ee-uk-rvc3
+   setprop ro.com.google.clientidbase.vs android-ee-uk-rvc3
+   setprop ro.com.google.clientidbase.cr android-motorola
