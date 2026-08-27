@@ -1,0 +1,10 @@
+service disablefactory /vendor/bin/disablefactory
+    user system
+    group system wakelock inet cache media_rw ext_data_rw everybody
+    oneshot
+    disabled
+
+#setprop debug.df.factory_reset_dection 1
+on property:debug.df.factory_reset_dection=1
+    restorecon_recursive /dev/block/by-name/miscdata
+    start disablefactory
