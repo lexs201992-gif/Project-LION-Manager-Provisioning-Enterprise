@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.phone" android:versionCode="34" android:versionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" coreApp="true" package="com.android.unisoc.telephony.server" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34"/>
+    <protected-broadcast android:name="android.intent.action.SIM_STATE_CHANGED"/>
+    <protected-broadcast android:name="android.intent.action.SIMLOCK_STATE_CHANGED"/>
+    <protected-broadcast android:name="com.android.unisoc.telephony.server.RADIOINTERACTOR_SERVICE"/>
+    <permission android:name="com.android.unisoc.telephony.server.BIND_RADIO_SERVICE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.android.unisoc.telephony.server.BIND_RADIO_SERVICE"/>
+    <permission android:name="com.android.unisoc.telephony.server.permission.RADIO_INTERACTOR_COMMON" android:protectionLevel="privileged|signature"/>
+    <uses-permission android:name="com.android.unisoc.telephony.server.permission.RADIO_INTERACTOR_COMMON"/>
+    <application android:name="RadioInteractorApp" android:persistent="true" android:process="com.android.phone" android:allowBackup="false" android:extractNativeLibs="true" android:directBootAware="true" android:usesNonSdkApi="true">
+        <service android:name="com.android.unisoc.telephony.server.RadioInteractorService" android:permission="com.android.unisoc.telephony.server.BIND_RADIO_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.unisoc.telephony.server.RADIOINTERACTOR_SERVICE"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
