@@ -1,0 +1,129 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="110010220" android:versionName="11.1.022-6776" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="com.dti.amx" platformBuildVersionCode="35" platformBuildVersionName="15">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="35"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <permission android:name="com.kochava.preinstall.READ_PERMISSION_KOCHAVA" android:protectionLevel="normal"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <permission android:name="com.dti.amx.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.dti.amx.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.START_FOREGROUND_SERVICES_FROM_BACKGROUND"/>
+    <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <permission android:name="com.dti.amx.permission.APP_EVENTS" android:protectionLevel="signature"/>
+    <permission android:name="com.digitalturbine.ignite.ACCESS_LOG" android:protectionLevel="signature"/>
+    <permission android:name="com.digitalturbine.ignite.ACCESS_SHARED_PREFS" android:protectionLevel="signature"/>
+    <permission android:name="com.digitalturbine.ignite.provider.ACCESS_DATA" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.dti.amx.permission.APP_EVENTS"/>
+    <permission android:name="com.dti.amx.permission.SUSPEND_IGNITE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.dti.amx.permission.SUSPEND_IGNITE"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <application android:theme="@0x7f12001e" android:label="@0x7f1100c9" android:icon="@0x7f0800f7" android:name="com.digitalturbine.igniteui.MainAndroidApplicationInstance" android:allowClearUserData="true" android:allowBackup="false" android:supportsRtl="true" android:extractNativeLibs="true" android:usesCleartextTraffic="@0x7f05007e" android:resizeableActivity="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+        <meta-data android:name="android.max_aspect" android:value="3.0"/>
+        <meta-data android:name="delivery_metrics_exported_to_big_query_enabled" android:value="true"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true"/>
+        <activity android:theme="@0x7f120021" android:name="com.digitalturbine.igniteui.activity.IgniteLauncherLoadingActivity" android:enabled="false" android:exported="true" android:taskAffinity="com.dti.amx.IgniteLauncherLoadingActivity" android:launchMode="singleTask" android:screenOrientation="portrait">
+            <intent-filter android:priority="4">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120021" android:name="com.digitalturbine.igniteui.activity.AfterWizardActivity" android:enabled="false" android:exported="false" android:taskAffinity="com.dti.amx.AfterWizardActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="portrait">
+            <intent-filter android:priority="4">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120138" android:label="" android:name="com.digitalturbine.igniteui.activity.OptOutDialogHolderActivity" android:exported="true" android:excludeFromRecents="true">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110130" android:host="@0x7f110128"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120021" android:label="" android:name="com.digitalturbine.igniteui.activity.app_info.MbaAppInfoActivity" android:exported="true" android:configChanges="orientation|screenSize"/>
+        <activity android:theme="@0x7f120020" android:label="" android:name="com.digitalturbine.igniteui.activity.IntervalWizardOptOutActivity" android:exported="true" android:taskAffinity="com.dti.amx.IntervalWizardOptOutActivity" android:excludeFromRecents="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|screenLayout|screenSize" android:noHistory="true"/>
+        <activity android:theme="@0x7f120022" android:label="" android:name="com.digitalturbine.igniteui.newdynamic.DynamicOptOutDialogActivity" android:exported="true" android:taskAffinity="com.dti.amx.OptInFotaOptOutDialogActivity" android:excludeFromRecents="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|screenLayout|screenSize" android:noHistory="true"/>
+        <activity android:theme="@0x7f120021" android:label="@0x7f11019b" android:name="com.digitalturbine.igniteui.MainActivity" android:exported="true" android:taskAffinity="com.dti.amx.MainActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|screenLayout|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110130" android:host="@0x7f11012b"/>
+            </intent-filter>
+        </activity>
+
+      intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110130" android:host="@0x7f11012b"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120021" android:label="oss info" android:name="com.digitalturbine.igniteui.activity.OssInfoActivity" android:exported="true" android:screenOrientation="fullSensor" android:configChanges="keyboardHidden|screenLayout|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110130" android:host="@0x7f110127"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120021" android:label="" android:name="com.digitalturbine.igniteui.menu.ModalActivity" android:exported="false"/>
+        <activity android:theme="@0x7f120021" android:label="Ignite UI v3" android:name="com.digitalturbine.igniteui.web.wizardv3.ui.WizardActivity" android:exported="false" android:excludeFromRecents="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|screenLayout|screenSize"/>
+        <activity android:theme="@0x7f120137" android:label="" android:name="com.digitalturbine.igniteui.appdetails.ui.activity.AppDetailsActivity" android:exported="false" android:taskAffinity="com.dti.amx.DeepLink"/>
+        <activity android:label="Installer Verify Activity" android:name="com.digitalturbine.igniteui.activity.VerifyActivity" android:exported="false"/>
+        <activity android:theme="@0x7f120138" android:label="@0x7f11008a" android:icon="@0x7f0800f7" android:name="com.digitalturbine.igniteui.activity.deeplink.DeepLinkActivity" android:enabled="false" android:exported="true" android:taskAffinity="com.dti.amx.DeepLink" android:excludeFromRecents="true" android:configChanges="keyboardHidden|orientation|screenLayout|screenSize">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110131" android:host="@0x7f11012a" android:pathPrefix="@0x7f11012d"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110132" android:host="@0x7f11012a" android:pathPrefix="@0x7f11012d"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110130" android:host="@0x7f11012a" android:pathPrefix="@0x7f11012d"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110131" android:host="@0x7f110126" android:pathPrefix="@0x7f11012c"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110132" android:host="@0x7f110126" android:pathPrefix="@0x7f11012c"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@0x7f110130" android:host="@0x7f110126" android:pathPrefix="@0x7f11012c"/>
+            </intent-filter>
