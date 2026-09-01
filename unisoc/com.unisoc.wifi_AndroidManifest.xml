@@ -1,0 +1,18 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:versionCode="34" android:versionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" coreApp="true" package="com.unisoc.wifi" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.MANAGE_WIFI_COUNTRY_CODE"/>
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <application android:name=".UniWifiApp" android:process="system" android:allowBackup="false" android:extractNativeLibs="true" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:usesNonSdkApi="true">
+        <receiver android:name=".BootupReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
