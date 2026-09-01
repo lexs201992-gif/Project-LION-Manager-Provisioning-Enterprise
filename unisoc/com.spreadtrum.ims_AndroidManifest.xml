@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.phone" android:versionCode="34" android:versionName="14" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" coreApp="true" package="com.spreadtrum.ims" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34"/>
+    <protected-broadcast android:name="com.spreadtrum.ims.VOLTE_REGISTED"/>
+    <protected-broadcast android:name="com.spreadtrum.ims.acs.AcsController.ACTION_RETRY"/>
+    <permission android:name="com.spreadtrum.ims.permisson.IMS_COMMON" android:protectionLevel="privileged|signature"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.spreadtrum.vowifi.permission.ACCESS_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="com.spreadtrum.ims.permisson.IMS_COMMON"/>
+    <uses-permission android:name="com.spreadtrum.ims.permisson.SRMI_COMMON"/>
+    <uses-permission android:name="unisoc.permission.SELF_REGISTER"/>
+    <application android:name="ImsApp" android:allowBackup="false" android:extractNativeLibs="true" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:usesNonSdkApi="true">
+        <service android:name=".ImsAdapterService" android:permission="android.permission.BIND_IMS_SERVICE" android:enabled="true" android:exported="true">
+            <meta-data android:name="android.telephony.ims.MMTEL_FEATURE" android:value="true"/>
+            <meta-data android:name="android.telephony.ims.EMERGENCY_MMTEL_FEATURE" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.telephony.ims.ImsService"/>
+            </intent-filter>
+        </service>
+        <service android:name=".IwlanNetworkService" android:permission="android.permission.BIND_TELEPHONY_NETWORK_SERVICE" android:exported="false">
+            <intent-filter>
+                <action android:name="android.telephony.NetworkService"/>
+            </intent-filter>
+        </service>
+        <service android:name=".IwlanQualifiedNetworksService" android:permission="android.permission.BIND_TELEPHONY_DATA_SERVICE" android:exported="false">
+            <intent-filter>
+                <action android:name="android.telephony.data.QualifiedNetworksService"/>
+            </intent-filter>
+        </service>
+        <service android:name=".IwlanDataService" android:permission="android.permission.BIND_TELEPHONY_DATA_SERVICE" android:exported="false">
+            <intent-filter>
+                <action android:name="android.telephony.data.DataService"/>
+            </intent-filter>
+        </service>
+        <service android:name=".vowifi.ImsDozeManagerService" android:exported="false"/>
+        <service android:name=".gba.UnisocGbaService" android:permission="android.permission.BIND_GBA_SERVICE" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="android.telephony.gba.GbaService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.spreadtrum.ims.n3am.vowifi.WFCStateMonitorService" android:exported="false"/>
+        <service android:name="com.spreadtrum.ims.n3am.vowifi.PhoneStateMonitor" android:exported="false"/>
+        <service android:name="com.spreadtrum.ims.n3am.vowifi.RequestResolver" android:exported="false"/>
+        <service android:name="com.spreadtrum.ims.n3am.vowifi.VideoStateNotifyService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.ims.internal.IN3AMVideoStateNoitfy"/>
+            </intent-filter>
+        </service>
+        <service android:name=".datachannel.ImsDataChannelService" android:permission="com.spreadtrum.ims.permisson.IMS_COMMON" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="com.unisoc.ims.ImsDataChannelService"/>
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
