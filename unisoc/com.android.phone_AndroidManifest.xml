@@ -1,0 +1,399 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:sharedUserId="android.uid.phone" android:versionCode="34" android:versionName="14" android:sharedUserLabel="@0x7f110472" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" coreApp="true" package="com.android.phone" platformBuildVersionCode="34" platformBuildVersionName="14">
+    <uses-sdk android:minSdkVersion="34" android:targetSdkVersion="34"/>
+    <protected-broadcast android:name="com.android.phone.slice.action.START_SLICE_PURCHASE_APP"/>
+    <protected-broadcast android:name="com.android.phone.slice.action.SLICE_PURCHASE_APP_RESPONSE_TIMEOUT"/>
+    <protected-broadcast android:name="android.intent.action.NW_ERROR_CODE"/>
+    <protected-broadcast android:name="android.intent.action.INCREMENTAL_NW_SCAN_IND"/>
+    <original-package android:name="com.android.phone"/>
+    <uses-permission android:name="android.permission.GRANT_RUNTIME_PERMISSIONS_TO_TELEPHONY_DEFAULTS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.CONTROL_INCALL_EXPERIENCE"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.STATUS_BAR"/>
+    <uses-permission android:name="android.permission.STATUS_BAR_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE"/>
+    <uses-permission android:name="android.permission.SUGGEST_TELEPHONY_TIME_AND_ZONE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_IMS_CALL_SERVICE"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.BROADCAST_SMS"/>
+    <uses-permission android:name="android.permission.BROADCAST_WAP_PUSH"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SHUTDOWN"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.PERFORM_CDMA_PROVISIONING"/>
+    <uses-permission android:name="android.permission.USE_SIP"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="android.permission.UPDATE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="com.android.smspush.WAPPUSH_MANAGER_BIND"/>
+    <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
+    <uses-permission android:name="android.permission.READ_CARRIER_APP_INFO"/>
+    <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES"/>
+    <uses-permission android:name="android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS"/>
+    <uses-permission android:name="android.permission.NETWORK_FACTORY"/>
+    <uses-permission android:name="android.permission.OBSERVE_NETWORK_POLICY"/>
+    <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS"/>
+    <uses-permission android:name="android.permission.READ_SEARCH_INDEXABLES"/>
+    <uses-permission android:name="android.permission.DUMP"/>
+    <uses-permission android:name="android.permission.REGISTER_CALL_PROVIDER"/>
+    <uses-permission android:name="android.permission.REGISTER_SIM_SUBSCRIPTION"/>
+    <uses-permission android:name="android.permission.BIND_IMS_SERVICE"/>
+    <uses-permission android:name="android.permission.BIND_CARRIER_SERVICES"/>
+    <uses-permission android:name="android.permission.BIND_EUICC_SERVICE"/>
+    <uses-permission android:name="android.permission.BIND_TELEPHONY_NETWORK_SERVICE"/>
+    <uses-permission android:name="android.permission.BIND_CELL_BROADCAST_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL"/>
+    <uses-permission android:name="com.android.voicemail.permission.WRITE_VOICEMAIL"/>
+    <uses-permission android:name="com.android.voicemail.permission.READ_VOICEMAIL"/>
+    <uses-permission android:name="android.permission.BIND_VISUAL_VOICEMAIL_SERVICE"/>
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS"/>
+    <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_BLOCKED_NUMBERS"/>
+    <uses-permission android:name="android.permission.WRITE_BLOCKED_NUMBERS"/>
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS"/>
+    <uses-permission android:name="android.permission.REGISTER_STATS_PULL_ATOM"/>
+    <uses-permission android:name="android.permission.STOP_APP_SWITCHES"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+    <uses-permission android:name="android.permission.MANAGE_NETWORK_POLICY"/>
+    <uses-permission android:name="android.permission.READ_NETWORK_USAGE_HISTORY"/>
+    <uses-permission android:name="android.permission.BIND_TELEPHONY_DATA_SERVICE"/>
+    <uses-permission android:name="android.permission.BIND_SATELLITE_GATEWAY_SERVICE"/>
+    <uses-permission android:name="android.permission.BIND_SATELLITE_SERVICE"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS"/>
+    <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
+    <uses-permission android:name="android.permission.NETWORK_STATS_PROVIDER"/>
+    <uses-permission android:name="android.permission.MANAGE_SUBSCRIPTION_PLANS"/>
+    <uses-permission android:name="android.permission.OBSERVE_ROLE_HOLDERS"/>
+    <uses-permission android:name="android.permission.BIND_GBA_SERVICE"/>
+    <uses-permission android:name="android.permission.LOG_COMPAT_CHANGE"/>
+    <uses-permission android:name="android.permission.READ_COMPAT_CHANGE_CONFIG"/>
+    <uses-permission android:name="android.permission.READ_PROJECTION_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_TELEPHONY_SIMINFO_DB"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS"/>
+    <uses-permission android:name="android.permission.MANAGE_SUBSCRIPTION_USER_ASSOCIATION"/>
+    <uses-permission android:name="android.permission.UWB_PRIVILEGED"/>
+    <permission android:label="Access last known cell identity." android:name="com.android.phone.permission.ACCESS_LAST_KNOWN_CELL_ID" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.motorola.permission.ACCESS_CHECKIN"/>
+    <uses-permission android:name="com.spreadtrum.ims.permisson.IMS_COMMON"/>
+    <uses-permission android:name="com.android.phone.permission.FDN_CHANGE"/>
+    <uses-permission android:name="com.unisoc.permisson.VM_SETTING_CHANGED"/>
+    <permission android:name="com.android.phone.permission.VOICE_MAIL_CHANGE" android:protectionLevel="privileged|signature"/>
+    <permission android:name="com.android.phone.permission.FDN_CHANGE" android:protectionLevel="privileged|signature"/>
+    <permission android:name="com.unisoc.permisson.VM_SETTING_CHANGED" android:protectionLevel="privileged|signature"/>
+    <protected-broadcast android:name="com.sprd.intent.action.ACTION_ENTERCODE"/>
+    <permission android:name="com.sprd.subsidy.permission.ENTER_CODE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.sprd.subsidy.permission.ENTER_CODE"/>
+    <protected-broadcast android:name="android.intent.action.HIGH_DEF_AUDIO_SUPPORT"/>
+    <permission android:name="com.unisoc.permisson.HIGH_DEF_AUDIO" android:protectionLevel="privileged|signature"/>
+    <uses-permission android:name="com.unisoc.permisson.HIGH_DEF_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.android.phone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.android.phone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <queries>
+        <intent>
+            <action android:name="com.android.setupwizard.action.PARTNER_CUSTOMIZATION"/>
+        </intent>
+    </queries>
+    <application android:label="@0x7f110472" android:icon="@0x7f0f0001" android:name="com.android.phone.PhoneApp" android:persistent="true" android:allowBackup="false" android:supportsRtl="true" android:extractNativeLibs="true" android:usesCleartextTraffic="true" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:appComponentFactory="com.unisoc.phone.UniAppComponentFactory" android:usesNonSdkApi="true">
+        <provider android:name="com.android.phone.IccProvider" android:readPermission="android.permission.READ_CONTACTS" android:writePermission="android.permission.WRITE_CONTACTS" android:exported="true" android:multiprocess="true" android:authorities="icc"/>
+        <provider android:name="com.android.phone.SimPhonebookProvider" android:readPermission="android.permission.READ_CONTACTS" android:writePermission="android.permission.WRITE_CONTACTS" android:exported="true" android:multiprocess="true" android:authorities="com.android.simphonebook"/>
+        <provider android:name="com.android.ims.rcs.uce.eab.EabProvider" android:exported="false" android:authorities="eab"/>
+        <activity android:theme="@0x7f120148" android:label="@0x7f110279" android:name="com.android.phone.EmergencyDialer" android:exported="true" android:screenOrientation="portrait" android:resizeableActivity="false" android:showWhenLocked="true">
+            <intent-filter>
+                <action android:name="com.android.phone.EmergencyDialer.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.phone.EmergencyDialer.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL_EMERGENCY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL_EMERGENCY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.android.phone.ADNList"/>
+        <activity android:theme="@0x7f1201fa" android:label="@0x7f1105a4" android:icon="@0x7f0f0000" android:name="com.android.phone.SimContacts" android:exported="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/sim-contact"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f1102d3" android:name="com.android.phone.settings.fdn.FdnList" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.item/sim-contact"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.android.internal.telephony.uicc.InstallCarrierAppTrampolineActivity" android:exported="false"/>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f1102f2" android:name="com.android.phone.GsmUmtsCallOptions" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f11018f" android:name="com.android.phone.CdmaCallOptions" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120125" android:label="@0x7f110349" android:name="com.android.phone.GsmUmtsCallForwardOptions" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120125" android:label="@0x7f110349" android:name="com.android.phone.CdmaCallForwardOptions" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f110351" android:name="com.android.phone.GsmUmtsCallBarringOptions" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120125" android:label="@0x7f110354" android:name="com.android.phone.GsmUmtsAdditionalCallOptions" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120125" android:label="@0x7f1102d2" android:name="com.android.phone.settings.fdn.FdnSetting" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f1102a8" android:name="com.android.phone.EnableIccPinScreen" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f11019d" android:name="com.android.phone.ChangeIccPinScreen" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f1102ef" android:name="com.android.phone.settings.fdn.GetPin2Screen" android:windowSoftInputMode="stateVisible"/>
+        <activity android:theme="@0x7f12012f" android:name="com.android.phone.settings.fdn.EditFdnContactScreen" android:windowSoftInputMode="stateVisible"/>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f110234" android:name="com.android.phone.settings.fdn.DeleteFdnContactScreen"/>
+        <activity android:theme="@0x7f120125" android:label="@0x7f11016e" android:name="com.android.phone.CallFeaturesSetting" android:exported="true" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter android:priority="1">
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.telecom.action.SHOW_CALL_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.android.phone.otasp.OtaspActivationService" android:permission="android.permission.MODIFY_PHONE_STATE" android:exported="true" android:launchMode="singleInstance" android:tooltipVerticalPadding="true">
+            <intent-filter>
+                <action android:name="android.service.simActivation.SimActivationService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.android.phone.otasp.OtaspSimStateReceiver" android:exported="false" android:tooltipVerticalPadding="true">
+            <intent-filter>
+                <action android:name="android.telephony.action.CARRIER_CONFIG_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f11002f" android:name="com.android.phone.settings.AccessibilitySettingsActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.telecom.action.SHOW_CALL_ACCESSIBILITY_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.android.phone.EmergencyCallbackModeService"/>
+        <service android:name="com.android.phone.TelephonyDebugService" android:permission="android.permission.DUMP" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.phone.TelephonyDebugService"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Theme.NoDisplay" android:name="com.android.phone.euicc.EuiccUiDispatcherActivity" android:permission="android.permission.MODIFY_PHONE_STATE" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.telephony.euicc.action.MANAGE_EMBEDDED_SUBSCRIPTIONS"/>
+                <action android:name="android.telephony.euicc.action.PROVISION_EMBEDDED_SUBSCRIPTION"/>
+                <action android:name="android.telephony.euicc.action.TRANSFER_EMBEDDED_SUBSCRIPTIONS"/>
+                <action android:name="android.telephony.euicc.action.CONVERT_TO_EMBEDDED_SUBSCRIPTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.android.phone.euicc.EuiccResolutionUiDispatcherActivity" android:permission="android.permission.CALL_PRIVILEGED" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.telephony.euicc.action.RESOLVE_ERROR"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.NoDisplay" android:name="com.android.phone.euicc.EuiccPrivilegedActionUiDispatcherActivity" android:permission="android.permission.CALL_PRIVILEGED" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.telephony.euicc.action.TOGGLE_SUBSCRIPTION_PRIVILEGED"/>
+                <action android:name="android.telephony.euicc.action.DELETE_SUBSCRIPTION_PRIVILEGED"/>
+                <action android:name="android.telephony.euicc.action.RENAME_SUBSCRIPTION_PRIVILEGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.NoDisplay" android:name="com.android.phone.euicc.EuiccPublicActionUiDispatcherActivity" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.telephony.euicc.action.START_EUICC_ACTIVATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:label="@0x7f110276" android:name="com.android.phone.EmergencyCallbackModeExitDialog" android:exported="true" android:excludeFromRecents="true" android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="com.android.phone.action.ACTION_SHOW_ECM_EXIT_DIALOG"/>
+                <action android:name="android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12014d" android:name="com.android.phone.MMIDialogActivity" android:excludeFromRecents="true" android:launchMode="singleInstance" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f110475" android:name="com.android.phone.settings.PhoneAccountSettingsActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.telecom.action.CHANGE_PHONE_ACCOUNTS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f120125" android:label="@0x7f11068f" android:name="com.android.phone.settings.VoicemailSettingsActivity" android:exported="true" android:configChanges="keyboardHidden|orientation|screenLayout|screenSize">
+            <intent-filter>
+                <action android:name="com.android.phone.CallFeaturesSetting.ADD_VOICEMAIL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.telephony.action.CONFIGURE_VOICEMAIL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:label="@0x7f1104f1" android:name="com.android.services.telephony.TelephonyConnectionService" android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE" android:exported="true" android:singleUser="true">
+            <intent-filter>
+                <action android:name="android.telecom.ConnectionService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.android.phone.vvm.VvmSmsReceiver" android:exported="false" android:tooltipVerticalPadding="true">
+            <intent-filter>
+                <action android:name="com.android.internal.provider.action.VOICEMAIL_SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.android.phone.vvm.VvmSimStateTracker" android:exported="false" android:tooltipVerticalPadding="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.telephony.action.CARRIER_CONFIG_CHANGED"/>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.android.internal.telephony.uicc.ShowInstallAppNotificationReceiver" android:exported="false"/>
+        <activity android:theme="@0x7f120380" android:name="com.android.phone.settings.PickSmsSubscriptionActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:theme="@0x7f12037f" android:name="com.android.phone.ErrorDialogActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTop" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <service android:name="com.android.phone.vvm.RemoteVvmTaskManager" android:exported="false"/>
+        <service android:name="com.android.internal.telephony.CellularNetworkService" android:permission="android.permission.BIND_TELEPHONY_NETWORK_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="android.telephony.NetworkService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.android.internal.telephony.data.CellularDataService" android:permission="android.permission.BIND_TELEPHONY_DATA_SERVICE" android:exported="true">
+            <intent-filter>
+                <action android:name="android.telephony.data.DataService"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@0x7f12031a" android:label="@0x7f110488" android:name="com.android.phone.settings.RadioInfo" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE"/>
+            </intent-filter>
+        </activity>
+        <provider android:name="com.android.phone.ServiceStateProvider" android:writePermission="android.permission.MODIFY_PHONE_STATE" android:exported="true" android:multiprocess="false" android:authorities="service-state" android:singleUser="true"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library android:name="androidx.window.extensions" android:required="false"/>
+        <uses-library android:name="androidx.window.sidecar" android:required="false"/>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f110357" android:name="com.unisoc.phone.settings.fdn.PreloadFdnList" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f110349" android:name="com.unisoc.phone.callforward.CallForwardType" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:autoRemoveFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f11034e" android:name="com.unisoc.phone.callforward.CallForwardTimeEditPreference" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:autoRemoveFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@0x7f12012f" android:label="@0x7f110351" android:name="com.unisoc.phone.callbarring.CallBarringType" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:autoRemoveFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="com.android.phone.androidx-startup">
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+        </provider>
+        <receiver android:name="androidx.profileinstaller.ProfileInstallReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@0x7f120278" android:name="com.android.settingslib.users.AvatarPickerActivity"/>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false" android:directBootAware="true"/>
+    </application>
+</manifest>
